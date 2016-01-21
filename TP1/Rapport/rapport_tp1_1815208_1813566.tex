@@ -149,13 +149,21 @@
 %--------------------------------------------
 
 \begin{homeworkSection}{Choix d'un modèle comportemental} % Section within problem
-    Dans la question précédente, nous avions déterminé qu'un modèle compartiental de type SI s'appliquait à l'étude de la
-propagation des logiciels malveillants dans un réseau. Sachant qu'un ordinateur peut être sain ou infecté, et uniquement l'un de
+\problemAnswer{ % Answer
+\lipsum[6]
+}
+\end{homeworkSection}
+
+%--------------------------------------------
+
+\begin{homeworkSection}{Identification des équations différentielles} % Section within problem
+    Dans la question précédente, nous avions déterminé qu'un modèle compartimental de type SI s'appliquait à l'étude de la
+propagation des logiciels malveillants. Sachant qu'un ordinateur peut être sain ou infecté, et uniquement l'un de
 ces deux états, on a la première relation:
 \[
     S + I = N
 \]
-Où $N$ est la taille de la population et $S$ la taille de la population saine. Tandis que $I$ est la population infectée. Si de
+Où $N$ est la taille de la population et $S$ la taille de la population saine. Tandis que $I$ est la taille population infectée. Si de
 plus, on note $\lambda$ le nombre de contacts par machine par unité de temps, On a alors que \( \lambda \cdot I \) représente le
 nombre de machine qui ont été atteintes par une machine infecté entre deux unités de temps. Sachant que \( \frac{S}{N} \) est la
 proportion de machines saines à l'instant courant, on peut approximer le nombre de machines nouvellement infectées entre deux pas
@@ -167,14 +175,11 @@ On peut alors remplacer $S(t)$ par $N(t) - I(t)$, et on obtient:
 \[
     \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{N(t)-I(t)}{N(t)}
 \]
-\end{homeworkSection}
-
-%--------------------------------------------
-
-\begin{homeworkSection}{Identification des équations différentielles} % Section within problem
-\problemAnswer{ % Answer
-\lipsum[6]
-}
+De part la relation entre $S$ et $I$, on a:
+\[
+    \frac{dS(t)}{dt} + \frac{dI(t)}{dt} = 0
+\]
+De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N(t)-S(t)) \cdot \frac{S(t)}{N(t)} \)
 \end{homeworkSection}
 
 %--------------------------------------------
