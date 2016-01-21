@@ -1,4 +1,4 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{{{
 % Structured General Purpose Assignment
 % LaTeX Template
 %
@@ -137,7 +137,7 @@
 
 \newpage
 \tableofcontents
-\newpage
+\newpage%}}}
 
 %----------------------------------------------------------------------------------------
 %	Première partie
@@ -149,11 +149,24 @@
 %--------------------------------------------
 
 \begin{homeworkSection}{Choix d'un modèle comportemental} % Section within problem
-\lipsum[4]\vspace{10pt} % Question
-
-\problemAnswer{ % Answer
-\lipsum[5]
-}
+    Dans la question précédente, nous avions déterminé qu'un modèle compartiental de type SI s'appliquait à l'étude de la
+propagation des logiciels malveillants dans un réseau. Sachant qu'un ordinateur peut être sain ou infecté, et uniquement l'un de
+ces deux états, on a la première relation:
+\[
+    S + I = N
+\]
+Où $N$ est la taille de la population et $S$ la taille de la population saine. Tandis que $I$ est la population infectée. Si de
+plus, on note $\lambda$ le nombre de contacts par machine par unité de temps, On a alors que \( \lambda \cdot I \) représente le
+nombre de machine qui ont été atteintes par une machine infecté entre deux unités de temps. Sachant que \( \frac{S}{N} \) est la
+proportion de machines saines à l'instant courant, on peut approximer le nombre de machines nouvellement infectées entre deux pas
+de temps par \( \lambda \cdot I \cdot \frac{S}{N} \). Ce qui nous donne l'équation différentielle suivante:
+\[
+    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{S(t)}{N(t)}
+\]
+On peut alors remplacer $S(t)$ par $N(t) - I(t)$, et on obtient:
+\[
+    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{N(t)-I(t)}{N(t)}
+\]
 \end{homeworkSection}
 
 %--------------------------------------------
