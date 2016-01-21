@@ -1,0 +1,23 @@
+#!/usr/bin/gnuplot
+
+# png
+set terminal pngcairo size 400,400 enhanced font 'Verdana,10'
+set output '../Images/plotting_Q3_2.png'
+
+# Axes label
+set xlabel 't'
+set ylabel '#personne'
+
+# Axes ranges
+set xrange [1:1200]
+set yrange [0:3000]
+
+#function definition
+N0=3000
+i0=1
+I(x,y)=(i0*N0)/((N0-i0)*exp(-y*x)+i0)
+
+#plot
+plot I(x,0.01) title '0.01' with lines linestyle 1, \
+     I(x,0.025) title '0.025' with lines linestyle 2, \
+     I(x,0.05) title '0.05' with lines linestyle 3

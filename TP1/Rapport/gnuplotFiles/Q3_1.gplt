@@ -1,0 +1,24 @@
+#!/usr/bin/gnuplot
+
+# png
+set terminal pngcairo size 400,400 enhanced font 'Verdana,10'
+set output '../Images/plotting_Q3_1.png'
+
+# Axes label
+set xlabel 't'
+set ylabel '#personne'
+
+# Axes ranges
+set xrange [1:1200]
+set yrange [0:3000]
+
+#function definition
+N0=3000
+lambda=0.02
+i0=1
+I(x)=(i0*N0)/((N0-i0)*exp(-lambda*x)+i0)
+S(x)=N0-I(x)
+
+#plot
+plot I(x) title 'I(t)' with lines linestyle 1, \
+     S(x)  title 'S(t)' with lines linestyle 2
