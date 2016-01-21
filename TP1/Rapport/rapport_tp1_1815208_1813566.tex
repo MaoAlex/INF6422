@@ -169,17 +169,17 @@ nombre de machine qui ont été atteintes par une machine infecté entre deux un
 proportion de machines saines à l'instant courant, on peut approximer le nombre de machines nouvellement infectées entre deux pas
 de temps par \( \lambda \cdot I \cdot \frac{S}{N} \). Ce qui nous donne l'équation différentielle suivante:
 \[
-    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{S(t)}{N(t)}
+    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{S(t)}{N}
 \]
-On peut alors remplacer $S(t)$ par $N(t) - I(t)$, et on obtient:
+On peut alors remplacer $S(t)$ par $N - I(t)$, et on obtient:
 \[
-    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{N(t)-I(t)}{N(t)}
+    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{N-I(t)}{N}
 \]
 De part la relation entre $S$ et $I$, on a:
 \[
     \frac{dS(t)}{dt} + \frac{dI(t)}{dt} = 0
 \]
-De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N(t)-S(t)) \cdot \frac{S(t)}{N(t)} \)
+De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \)
 \end{homeworkSection}
 
 %--------------------------------------------
