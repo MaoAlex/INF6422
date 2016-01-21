@@ -25,6 +25,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 \usepackage{hyperref}
+\usepackage{hyperref}
 \usepackage{lastpage} % Required to determine the last page for the footer
 \usepackage{extramarks} % Required for headers and footers
 \usepackage{graphicx} % Required to insert images
@@ -46,7 +47,7 @@
 \rhead{\firstxmark} % Top right header
 \lfoot{\lastxmark} % Bottom left footer
 \cfoot{} % Bottom center footer
-\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\rfoot{Page\ \thepage\ de\ \pageref{LastPage}} % Bottom right footer
 \renewcommand\headrulewidth{0.4pt} % Size of the header rule
 \renewcommand\footrulewidth{0.4pt} % Size of the footer rule
 
@@ -59,8 +60,8 @@
 
 % Header and footer for when a page split occurs within a problem environment
 \newcommand{\enterProblemHeader}[1]{
-\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
-\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{#1 continue \ldots}\nobreak
+\nobreak\extramarks{#1 (continue)}{#1 continue \ldots}\nobreak
 }
 
 % Header and footer for when a page split occurs between problem environments
@@ -179,7 +180,7 @@ De part la relation entre $S$ et $I$, on a:
 \[
     \frac{dS(t)}{dt} + \frac{dI(t)}{dt} = 0
 \]
-De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \)
+De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \).
 \end{homeworkSection}
 
 %--------------------------------------------
@@ -195,19 +196,21 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
 %--------------------------------------------
 
 \begin{homeworkSection}{Etude de I et S en fonction du temps} % Using the problem name elsewhere
-\problemAnswer{ % Answer
-\lipsum[7]
-}
+\begin{figure}[H]
+    \includegraphics{Images/plotting_Q3_1.png}
+    \caption{évolution de la population en fonction du temps}
+    \label{fig:Q3.1}
+\end{figure}
 \end{homeworkSection}
 
 %--------------------------------------------
 
 \begin{homeworkSection}{Etude de l'influence du paramètre $\lambda$}
-\lipsum[8]\vspace{10pt} % Question
-
-\problemAnswer{ % Answer
-\lipsum[9]
-}
+\begin{figure}[H]
+    \includegraphics{Images/plotting_Q3_2.png}
+    \caption{influence du paramètre $\lambda$}
+    \label{fig:Q3.2}
+\end{figure}
 \end{homeworkSection}
 
 %--------------------------------------------
