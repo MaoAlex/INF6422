@@ -220,6 +220,10 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
     \caption{évolution de la population en fonction du temps}
     \label{fig:Q3.1}
 \end{figure}
+
+On peut remarquer sur la figure \ref{fig:Q3.1} que la fonction \( I \) converge rapidement vers son maximum. Cela via de la convergence
+rapide de l'exponentielle décroissante vers sa limite. Ainsi, en environ 700 secondes, l'intégralité des machines vunérables est
+atteint. Il aura donc fallu moins de 12 minutes au ver pour contaminer l'ensemble du réseau pourtant composé de $3000$ machines. 
 \end{homeworkSection}
 
 %--------------------------------------------
@@ -230,6 +234,12 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
     \caption{influence du paramètre $\lambda$}
     \label{fig:Q3.2}
 \end{figure}
+
+Dans l'équation différentielle présentée précédemment, le paramètre $\lambda$ correspond au nombre de contacts par machines par unité de temps. De ce fait, plus ce paramètre est élevé,
+plus une machine peut atteindre d'autres machines entre deux pas de temps. Ainsi, si $\lambda$, augmente le nombre de machines
+qu'une machine infectée peut contaminer augmente. Une illustration graphique de ce phénomène est visible sur la figure
+\ref{fig:Q3.2}. On y voit en effet que la croissance de la courbe correspondant à $\lambda=0.05$ a une plus forte croissance que
+les autres courbes (correspondant à $\lambda=0.025$ et $\lambda=0.01$).
 \end{homeworkSection}
 
 %--------------------------------------------
@@ -246,6 +256,14 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
 }
 \end{homeworkProblem}
 
+\begin{homeworkProblem}[\arabic{homeworkProblemCounter} Performance et optimisation] % Roman numerals
+\begin{homeworkSection}{Application du concept du double-tétraèdre}
+\end{homeworkSection}
+\begin{homeworkSection}{Compléments d'études}
+\end{homeworkSection}
+\begin{homeworkSection}{La diversité dans un réseau informatique}
+\end{homeworkSection}
+\end{homeworkProblem}
 %----------------------------------------------------------------------------------------
 
 \end{document}
