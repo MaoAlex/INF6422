@@ -240,6 +240,19 @@ plus une machine peut atteindre d'autres machines entre deux pas de temps. Ainsi
 qu'une machine infectée peut contaminer augmente. Une illustration graphique de ce phénomène est visible sur la figure
 \ref{fig:Q3.2}. On y voit en effet que la croissance de la courbe correspondant à $\lambda=0.05$ a une plus forte croissance que
 les autres courbes (correspondant à $\lambda=0.025$ et $\lambda=0.01$).
+
+\problemAnswer{ % Answer
+    Avant de clôre cette partie sur le modèle déterministe, il est important de noter que les équations établies dans la première
+partie ne traduisent pas la possibilité que deux machines infectées tente de contaminer la même machine.  En effet, l'équation:
+\[
+    \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{S(t)}{N}
+\]
+Implique que parmi toutes les machines contactées, la proportion de machines vulnérables ($\frac{S(t)}{N}$) sera infectée. Or il
+est possible qu'une même machine soit atteinte par deux infectées distinctes. La solution de l'équation est donc un majorant de
+$I$. En revanche, cette approximation est acceptable pour les grands réseaux où il est peu probable que deux infectées initient
+une communication avec une mêm machine saine de parrt 'effet de nombre. Toutefois, sur de petits réseaux, ces équations de font
+pas nécessairement sens.
+}
 \end{homeworkSection}
 
 %--------------------------------------------
@@ -251,9 +264,8 @@ les autres courbes (correspondant à $\lambda=0.025$ et $\lambda=0.01$).
 %----------------------------------------------------------------------------------------
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Modèle stochastique] % Roman numerals
-\problemAnswer{ % Answer
-\lipsum[10]
-}
+\begin{homeworkSection}{Caractéristiques d'un modèle stochastique}
+\end{homeworkSection}
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Performance et optimisation] % Roman numerals
