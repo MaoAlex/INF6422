@@ -50,6 +50,7 @@
 \cfoot{} % Bottom center footer
 \rfoot{Page\ \thepage\ de\ \pageref{LastPage}} % Bottom right footer
 \renewcommand\headrulewidth{0.4pt} % Size of the header rule
+
 \renewcommand\footrulewidth{0.4pt} % Size of the footer rule
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
@@ -62,7 +63,7 @@
 % Header and footer for when a page split occurs within a problem environment
 \newcommand{\enterProblemHeader}[1]{
 \nobreak\extramarks{#1}{#1 continue \ldots}\nobreak
-\nobreak\extramarks{#1 (continue)}{#1 continue \ldots}\nobreak
+\nobreak\extramarks{#1 (suite)}{#1 continue \ldots}\nobreak
 }
 
 % Header and footer for when a page split occurs between problem environments
