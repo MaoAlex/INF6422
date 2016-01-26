@@ -147,7 +147,9 @@
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Modèle déterministe] % Custom section title
 
 \begin{homeworkSection}{Choix d'un modèle comportemental} % Section within problem
-\problemAnswer{ % Answer
+    % j'ai mis en commentaires le cadre autour de la réopnse, je trouvais que c'étais un peu too much xD, mais si tu eux le
+    % remettre, fais toi plaisir.
+%\problemAnswer{ % Answer
 En regardant tout d'abord les 3 modèles, nous pouvons constater les caractéristiques suivantes pour chaque modèle :
 \begin{itemize}
     \item Modèle SI : Le modèle SI (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie ,dans une population à une ou plusieurs machines infectées, de la contagion auprès du reste de la population en ne prenant en compte que le facteur que les machines infectées vont infecter les machines saines.
@@ -161,8 +163,13 @@ défini de machines (population étudiée). Les machines ne possédant pas de sy
 anti-virus, ou un logiciel interne qui scannerait le système pour rechercher et éliminer des facteurs et externes, nous ne pouvons
 pas être dans le cas SIS. Et il n'y a pas de référence dans l'article à des mises à jours du système ou d'un anti-virus éventuel,
 nous pouvons conclure qu'il n'y a pas d'injection de remèdes contre les vers et que les machines n'ont nullement été guéries et
-immunisées contre cet agent pathogène et donc que nous ne pouvons pas nous trouver dans le cas du modèle SIR. Ainsi comme cet article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous pouvons donc penser que c'est bien le modèle SI qui s'appliquerait.
-}
+immunisées contre cet agent pathogène et donc que nous ne pouvons pas nous trouver dans le cas du modèle SIR. Ainsi comme cet
+article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous
+pouvons donc penser que c'est bien le modèle SI qui s'appliquerait. Notons que cette conclusion est légitime de part l'absence de
+guérison (pas d'anti-virus) ainsi que l'impossibilité pour une machine de se déconnecter, ou de quitter le réseau. Pour connaître
+de façon plus précise les hypothèses utilisées dans le cadre de l'article, on pourra se reporter au premier paragraphe de la partie
+2.3 du dit article, intitulé : \it{"Markov process Model"}.
+%}
 \end{homeworkSection}
 
 %--------------------------------------------
