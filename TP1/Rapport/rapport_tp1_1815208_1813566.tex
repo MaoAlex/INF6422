@@ -249,8 +249,8 @@ partie ne traduisent pas la possibilité que deux machines infectées tente de c
 \]
 Implique que parmi toutes les machines contactées, la proportion de machines vulnérables ($\frac{S(t)}{N}$) sera infectée. Or il
 est possible qu'une même machine soit atteinte par deux infectées distinctes. La solution de l'équation est donc un majorant de
-$I$. En revanche, cette approximation est acceptable pour simuler le début d'une infection dans  les grands réseaux où il est peu probable que deux infectées initient
-une communication avec une même machine saine de part l'effet de nombre. Toutefois, sur de petits réseaux, ces équations de font
+$I$. En revanche, cette approximation est acceptable pour les grands réseaux où il est peu probable que deux infectées initient
+une communication avec une mêm machine saine de parrt 'effet de nombre. Toutefois, sur de petits réseaux, ces équations de font
 pas nécessairement sens.
 }
 \end{homeworkSection}
@@ -267,7 +267,7 @@ pas nécessairement sens.
 \begin{homeworkSection}{Caractéristiques d'un modèle stochastique}
 Modèle stochastique : Un processus stochastique est la représentation de l’évolution discrète ou en temps continu d’une variable aléatoire. Dans un modèle probabiliste, on s'intéresse à l'évolution de manière probabiliste du modèle.
 Dans notre cas, l’espace est dénombrable, on a donc un processus discret. On s’intéresse ici à l’évolution de la variable nombre de machines infectées en fonction du temps avec un pas de temps de 1 seconde. On s'intéresse à la probabilité à un instant donné, de pouvoir infecter une machine saine. 
-Une approche déterministe n'aurait pas été préférable, car l'évolution de l'infection dépend de la probabilité à infecter une nouvelle machine au cours du temps. 
+Une approche déterministe n'aurait pas été préférable, car l'évolution de l'infection dépend de la probabilité à infecter une nouvelle machine au cours du temps. Dans l'article, nous avons l'étude de l'évolution de l'infection selon 3 scénarios, donc deux possèdes un sous-réseau intermédiaire(la partie J du réseau). Or un modèle déterministe ne pourrait prendre en compte correctement la probabilité de l'infection de la passerelle(gateway) entre les deux sous-réseaux(I et K)
 
 \end{homeworkSection}
 \end{homeworkProblem}
