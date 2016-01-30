@@ -155,18 +155,16 @@
 En regardant tout d'abord les 3 modèles, nous pouvons constater les caractéristiques suivantes pour chaque modèle :
 \begin{itemize}
     \item Modèle SI : Le modèle SI (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie ,dans une population à une ou plusieurs machines infectées, de la contagion auprès du reste de la population en ne prenant en compte que le facteur que les machines infectées vont infecter les machines saines.
-    \item Modèle SIS : Le modèle SIS (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie dans une population à un ou plusieurs facteurs patogènes. On considère dans ce cas que le facteur pathogène n'est que temporaire et se guérit au bout d'un laps de temps donné. Une machine infectée aura le pouvoir de "se guérir" toute seule pour repasser dans l'état sain.
+    \item Modèle SIS : Le modèle SIS (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie dans une population à un ou plusieurs facteurs pathogènes. On considère dans ce cas que le facteur pathogène n'est que temporaire et se guérit au bout d'un laps de temps donné. Une machine infectée aura le pouvoir de "se guérir" toute seule pour repasser dans l'état sain.
     \item Modèle SIR : Le modèles SIR (avec S représentant le nombre de machines saines, I le nombre de machines infectées et R le nombre de machines qui ont été guéries et immunisées) représente l'évolution d'une épidémie dans une population où on va introduire auprès de la population un vacin contre le ou les facteur(s) pathogène(s). Une machine infectée pourra alors recevoir le vaccin ou l'antidote et se retrouver immunisée contre l'agent pathogène.
 \end{itemize}
 
-En nous basant sur l'article "Optimising Networks Against Malware", le modèle comportemental qui s'appliquerait serait le modèle
-SI. En effet, dans l'article, les auteurs s'intéressent à l'évolution d'un ver(agent pathogène) dans un réseau avec un nombre
-défini de machines (population étudiée). Les machines ne possédant pas de système immunitaire qui pourrait être représenté par un
-anti-virus, ou un logiciel interne qui scannerait le système pour rechercher et éliminer des facteurs et externes, nous ne pouvons
-pas être dans le cas SIS. Et il n'y a pas de référence dans l'article à des mises à jours du système ou d'un anti-virus éventuel,
-nous pouvons conclure qu'il n'y a pas d'injection de remèdes contre les vers et que les machines n'ont nullement été guéries et
-immunisées contre cet agent pathogène et donc que nous ne pouvons pas nous trouver dans le cas du modèle SIR. Ainsi comme cet
-article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous
+En nous basant sur l'article "Optimising Networks Against Malware", le modèle comportemental qui s'appliquerait serait le modèle SI. 
+En effet, dans l'article, les auteurs s'intéressent à l'évolution d'un ver(agent pathogène) dans un réseau avec un nombre
+défini de machines (population étudiée). Les machines ne possédant pas de système immunitaire qui pourrait être représenté par un anti-virus, ou un logiciel interne qui scannerait le système pour rechercher et éliminer des élément suspects ou des facteurs externes. Les machines ne pouvant se débarrasser du vers de manière autonome, nous ne pouvons pas être dans le cas SIS.
+Et il n'y a pas de référence dans l'article à des mises à jours du système ou d'un anti-virus éventuel,
+nous pouvons conclure qu'il n'y a pas d'injection de remèdes contre les vers et que les machines n'ont nullement été guéries et immunisées contre cet agent pathogène. Nous ne pouvons pas nous trouver dans le cas du modèle SIR. 
+Enfin comme cet article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous
 pouvons donc penser que c'est bien le modèle SI qui s'appliquerait. Notons que cette conclusion est légitime de part l'absence de
 guérison (pas d'anti-virus) ainsi que l'impossibilité pour une machine de se déconnecter, ou de quitter le réseau. Pour connaître
 de façon plus précise les hypothèses utilisées dans le cadre de l'article, on pourra se reporter au premier paragraphe de la partie
