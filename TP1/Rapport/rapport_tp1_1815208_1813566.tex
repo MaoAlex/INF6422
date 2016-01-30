@@ -221,7 +221,7 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
 \end{figure}
 
 On peut remarquer sur la figure \ref{fig:Q3.1} que la fonction \( I \) converge rapidement vers son maximum. Cela via de la convergence
-rapide de l'exponentielle décroissante vers sa limite. Ainsi, en environ 700 secondes, l'intégralité des machines vunérables est
+rapide de l'exponentielle décroissante vers sa limite. Ainsi, en environ 700 secondes, l'intégralité des machines vulnérables est
 atteint. Il aura donc fallu moins de 12 minutes au ver pour contaminer l'ensemble du réseau pourtant composé de $3000$ machines. 
 \end{homeworkSection}
 
@@ -248,8 +248,8 @@ partie ne traduisent pas la possibilité que deux machines infectées tente de c
 \]
 Implique que parmi toutes les machines contactées, la proportion de machines vulnérables ($\frac{S(t)}{N}$) sera infectée. Or il
 est possible qu'une même machine soit atteinte par deux infectées distinctes. La solution de l'équation est donc un majorant de
-$I$. En revanche, cette approximation est acceptable pour les grands réseaux où il est peu probable que deux infectées initient
-une communication avec une mêm machine saine de parrt 'effet de nombre. Toutefois, sur de petits réseaux, ces équations de font
+$I$. En revanche, cette approximation est acceptable pour les grands réseaux (pendant le début de l'infection) où il est peu probable que deux infectées initient
+une communication avec une même machine saine de part l'effet de nombre. Toutefois, sur de petits réseaux, ces équations de font
 pas nécessairement sens.
 }
 \end{homeworkSection}
@@ -264,17 +264,29 @@ pas nécessairement sens.
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Modèle stochastique] % Roman numerals
 \begin{homeworkSection}{Caractéristiques d'un modèle stochastique}
-Modèle stochastique : Un processus stochastique est la représentation de l’évolution discrète ou en temps continu d’une variable aléatoire. Dans un modèle probabiliste, on s'intéresse à l'évolution de manière probabiliste du modèle.
-Dans notre cas, l’espace est dénombrable, on a donc un processus discret. On s’intéresse ici à l’évolution de la variable nombre de machines infectées en fonction du temps avec un pas de temps de 1 seconde. On s'intéresse à la probabilité à un instant donné, de pouvoir infecter une machine saine. 
-Une approche déterministe n'aurait pas été préférable, car l'évolution de l'infection dépend de la probabilité à infecter une nouvelle machine au cours du temps. Dans l'article, nous avons l'étude de l'évolution de l'infection selon 3 scénarios, donc deux possèdes un sous-réseau intermédiaire(la partie J du réseau). Or un modèle déterministe ne pourrait prendre en compte correctement la probabilité de l'infection de la passerelle(gateway) entre les deux sous-réseaux(I et K) ni la manière aléatoire de choisir les adresses à tester pour l'infection éventuelle.
+Modèle stochastique : Un processus stochastique est la représentation de l’évolution discrète ou en temps continu d’une variable
+aléatoire. Dans un modèle probabiliste, on s'intéresse à l'évolution de manière probabiliste du modèle.
+Dans notre cas, l’espace est dénombrable, on a donc un processus discret. On s’intéresse ici à l’évolution de la variable nombre
+de machines infectées en fonction du temps avec un pas de temps de 1 seconde. On s'intéresse à la probabilité à un instant donné,
+de pouvoir infecter une machine saine.  Une approche déterministe n'aurait pas été préférable, car l'évolution de l'infection
+dépend de la probabilité à infecter une nouvelle machine au cours du temps. Dans l'article, nous avons l'étude de l'évolution de
+l'infection selon 3 scénarios, dont deux possèdent un sous-réseau intermédiaire(la partie J du réseau). Or un modèle déterministe
+ne pourrait prendre en compte correctement la probabilité de l'infection de la passerelle (gateway) entre les deux sous-réseaux(I
+et K) ni la manière aléatoire de choisir les adresses à tester pour l'infection éventuelle.
 
+
+De ce fait, une approche déterministe ne pourrait capturer les caractéristiques du phénomène étudié dans cet article. Elle telle
+approche, donnerait en effet les mêmes résultats pour les trois scénarios, (Car étant par essence déterministe, elle ne peut
+saisir le côté aléatoire du phénomène). Ainsi, l'auteur de pourrait conclure sur l'impact de la topologie d'un réseau sur la
+propagation du vers.
 \end{homeworkSection}
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Performance et optimisation] % Roman numerals
 \begin{homeworkSection}{Application du concept du double-tétraèdre}
 En nous situant dans un contexte d'optimisation, toujours en référant à l'article, nous pouvons situer notre double-tétraèdre dans un contexte d'optimisation.
-Il faut prendre en compte les différentes stratégies possibles pour éviter l'infection et la propagation des vers au niveau de l'attaqué.  L'attaquand quant à lui va chercher à infecter le plus grand nombre de machines, et le plus vite possible.
+Il faut prendre en compte les différentes stratégies possibles pour éviter l'infection et la propagation des vers au niveau de
+l'attaqué.  L'attaquant quant à lui va chercher à infecter le plus grand nombre de machines, et le plus vite possible.
 
 \begin{figure}[H]
     \includegraphics{Images/doubleTetraedre.png}
@@ -289,7 +301,12 @@ Les aspects du tétraèdres qui sont modifiés sont :
 \begin{itemize}
 	\item Au niveau de l'attaqué, on va modifier les aspects de design et d'opération du réseau et des machines :
 La topologie du réseau peut être modifié de telle sorte à ralentir la propagation d'une éventuelle infection. La mise en place de logiciels appropriés comme des anti-virus peuvent permettre la diminution du nombre de machines infectées. La diversité des OS peuvent aussi ralentir la propagation.
-	\item Au niveau de l'attaquant, on va modifier les aspects de design et d'opération du ver : Les caractéristiques du ver de telle sorte à ce qu'il se propage plus vite, qu'il soit moins rapidement détectable et tout cela pour chercher l'augmentation du nombre de machines infectées. 
+	\item Au niveau de l'attaquant, on va modifier les aspects de design et d'opération du ver : Les caractéristiques du ver
+            de telle sorte à ce qu'il se propage plus vite, qu'il soit moins rapidement détectable et tout cela pour chercher
+            l'augmentation du nombre de machines infectées. (Comme exemple de modification de design, on peut considérer l'ajout
+            d'une hitlist ou encore une meilleure répartition des adresses à attaquer entre les vers)(Ces concepts sont introduits
+            dans l'article \textit{how to own the inernet on your spare time}, l'une des références de \textit{Optimizing network against
+            malware}).
 	\end{itemize}
 \end{homeworkSection}
 \begin{homeworkSection}{Compléments d'études}
@@ -306,8 +323,13 @@ Les autres aspects/méthodes qui pourraient être étudiés dans le cadre d'un p
 \end{itemize}
 \end{homeworkSection}
 \begin{homeworkSection}{La diversité dans un réseau informatique}
-On peut appliquer le concept de diversité au sein d'un réseau informatique en utilisant des systèmes d'exploitation différents(Windows, Linus, Mac OS) selon le rôle de la machine dans le réseau. Et nous pourrions avoir une diversité au niveau des logiciels(Client mail, anti-virus,...).  
-Cette diversité prendrait la forme d'une diversité au niveau logiciel(client de mail différent, système d'exploitation, ...), les failles de sécurité ne seront plus les même. Il pourrait aussi y avoir une diversité au niveau du matériel utilisé pour avoir des drivers différents, et éventuellement limité le nombre de machines pouvant être infectées par une faille d'un driver. L'idée serait donc d'avoir des machines le plus différentes possibles. En effet, les systèmes d'exploitations différents ne fonctionnent pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière, les failles ne sont donc pas les mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable de les infecter. 
+On peut appliquer le concept de diversité au sein d'un réseau informatique en utilisant des systèmes d'exploitation différents(Windows, Linus, Mac OS) selon le rôle de la machine dans le réseau. 
+Cette diversité prendrait la forme d'une diversité au niveau logiciel(client de mail différent, système d'exploitation, ...), les
+failles de sécurité ne seront plus les même. Il pourrait aussi y avoir une diversité au niveau du matériel utilisé pour avoir des
+drivers différents, et éventuellement limiter le nombre de machines pouvant être infectées par une faille d'un driver. L'idée
+serait donc d'avoir des machines le plus différentes possibles. En effet, les systèmes d'exploitations différents ne fonctionnent
+pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière, les failles ne sont donc pas les
+mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable de les infecter. 
 \end{homeworkSection}
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
