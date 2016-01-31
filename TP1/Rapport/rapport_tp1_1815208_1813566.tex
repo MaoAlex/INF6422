@@ -291,10 +291,11 @@ l'attaqué.  L'attaquant quant à lui va chercher à infecter le plus grand nomb
     \label{fig:Q5.1}
 \end{figure}
 %Pour Alex: J'ai rajouté deux trois trucs, dis moi si tu es d'accord :)
+%Pour Philippe, je suis d'accord avec ce que tu as rajouté, ça me parait bien
 Les aspects du tétraèdre qui sont fixes sont :
 L'environnement externe sur lequel nous ne pouvons pas agir. C'est-à-dire les facteurs extérieurs dont qui ne sont pas modifiables
 ni par l'attaqué ni par l'attaquant. %Il faut voir précisément ce que l'on considère comme facteurs environnementaux 
-Dans le cas présent, un premer élément serait le réseau externe: aucun des deux partis n'a de contrôle sur l'acheminement des
+Dans le cas présent, un premier élément serait le réseau externe: aucun des deux partis n'a de contrôle sur l'acheminement des
 paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article de s'intéresse que à
 l'effet de la topologie du réseau sur la propagation du vers. Ainsi, l'idée de modifier les ordinateurs afin de les protéger est
 hors champ. Par exemple, l'idée de fermer les ports non-indispensables est pertinente, mais ne rentre pas dans le cadre de cet article.  
@@ -309,11 +310,12 @@ Les aspects du tétraèdres qui sont modifiés sont :
 La topologie du réseau peut être modifié de telle sorte à ralentir la propagation d'une éventuelle infection. La mise en place de
 logiciels appropriés comme des anti-virus peuvent permettre la diminution du nombre de machines infectées. La diversité des OS
 peuvent aussi ralentir la propagation. %Pour Alex: Tu es sûr que l'ajout d'un anti virus rentre dans le cadre de l'article?
+%Pour philippe. Effectivement ce n'est pas dans le cadre de l'article car il n'y a pas de référence à ce sujet. Si on se limite au cadre de l'article, on devrait n'avoir que la modification de la topologie du réseau, non ?
 	\item Au niveau de l'attaquant, on va modifier les aspects de design et d'opération du ver : Les caractéristiques du ver
             de telle sorte à ce qu'il se propage plus vite, qu'il soit moins rapidement détectable et tout cela pour chercher
             l'augmentation du nombre de machines infectées. (Comme exemple de modification de design, on peut considérer l'ajout
             d'une hitlist ou encore une meilleure répartition des adresses à attaquer entre les vers)(Ces concepts sont introduits
-            dans l'article \textit{how to own the inernet on your spare time}, l'une des références de \textit{Optimizing network against
+            dans l'article \textit{how to own the internet on your spare time}, l'une des références de \textit{Optimizing network against
             malware}).
 	\end{itemize}
 \end{homeworkSection}
@@ -324,12 +326,15 @@ Les autres aspects/méthodes qui pourraient être étudiés dans le cadre d'un p
 	\item Mise en place d'anti-virus sur les machines
 	\item Fermer les ports inutiles sur les machines, ne garder que les ports nécessaires actifs
 	\item Essayer de détecter le ver à l'infection, par exemple si l'infection se fait par mail, le vers peut être détecter
-            par un scan du mail %Pour Alex: C'est pas redondant avec l'ajout d'un anti virus?
+            par un scan du mail %Pour Alex: C'est pas redondant avec l'ajout d'un anti virus? 
+%pour philippe : effectivement cela peut sembler redondant, mais il me semble qu'il n'y a pas que les anti-virus qui scannent les mails ? On peut enlever ce point sinon
         \item Utilisation de différents systèmes d'exploitation et de logiciels (afin que les machines ne soient pas toutes
             vulnérables aux mêmes attaques)
 	\item Éducation des utilisateurs sur les comportements à risque. 
 	\item Mise à jour régulière des logiciels pour combler des failles potentielles
-	\item Aspect logiciel, aspect matériel %Pour Alex: C'est pas un peu trop vaque? ou tu penses que ça passe?
+	
+ %Pour Alex: C'est pas un peu trop vaque? ou tu penses que ça passe?
+%Effectivement, cela est vague, c'était juste un note que j'avais mis.
 \end{itemize}
 \end{homeworkSection}
 \begin{homeworkSection}{La diversité dans un réseau informatique}
@@ -341,10 +346,12 @@ serait donc d'avoir des machines les plus différentes possibles. En effet, les 
 pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière, les failles ne sont donc pas les
 mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable de les infecter. 
 %Pour Alex: Dis moi si tu valides la suite :)
+%Pour philippe : Je valide, c'est un point que j'avais oublié mais bien pertinent
 On peut également envisager une diversité des utilisateurs, au sens où il y aurait des utilisateurs à faibles privilèges et des
 administrateurs. Les utilisateurs à faibles privilèges ne pourraient lancer que certains programmes, mais ne pourraient pas lancer
 d'installation sans intervention de l'administrateur. Ainsi, il faudrait que le ver infecte un administrateur afin de pouvoir se
 propager efficacement. (On supposerait que les administrateurs sont moins nombreux et mieux formés que les autres).
+On pourrait penser même à une hiérarchisation des droits d'accès des employés selon leur poste et leur besoin dans le réseau. L'idée étant d'attribuer aux employés juste les droits sur les fichiers/systèmes dont ils ont besoin pour leur travail et rien de plus. Par exemple, en plus de la séparation du réseau selon le domaine dans l'entreprise, les employés n'auront pas accès, ni ne pourront se connecter aux machines qui ne sont pas dans leur domaine de travail.
 \end{homeworkSection}
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
