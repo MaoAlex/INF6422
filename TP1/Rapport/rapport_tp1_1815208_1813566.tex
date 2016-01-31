@@ -211,10 +211,11 @@ De ce fait, \( \frac{dS(t)}{dt} = -\lambda \cdot (N-S(t)) \cdot \frac{S(t)}{N} \
 
 \begin{homeworkSection}{Etude de I et S en fonction du temps} % Using the problem name elsewhere
 \begin{figure}[H]
+    \begin{center}
 	\includegraphics{Images/plotting_Q3_1.png} 
-    %Il faudrait centrer l'image
-    \caption{évolution de la population en fonction du temps}
-    \label{fig:Q3.1}
+        \caption{évolution de la population en fonction du temps}
+        \label{fig:Q3.1}
+    \end{center}
 \end{figure}
 
 On peut remarquer sur la figure \ref{fig:Q3.1} que la fonction \( I \) converge rapidement vers son maximum. Cela via de la convergence
@@ -226,9 +227,11 @@ atteint. Il aura donc fallu moins de 12 minutes au ver pour contaminer l'ensembl
 
 \begin{homeworkSection}{Etude de l'influence du paramètre $\lambda$}
 \begin{figure}[H]
-    \includegraphics{Images/plotting_Q3_2.png}
-    \caption{influence du paramètre $\lambda$}
-    \label{fig:Q3.2}
+    \begin{center}
+        \includegraphics{Images/plotting_Q3_2.png}
+        \caption{influence du paramètre $\lambda$}
+        \label{fig:Q3.2}
+    \end{center}
 \end{figure}
 
 Dans l'équation différentielle présentée précédemment, le paramètre $\lambda$ correspond au nombre de contacts par machines par unité de temps. De ce fait, plus ce paramètre est élevé,
@@ -286,18 +289,19 @@ Il faut prendre en compte les différentes stratégies possibles pour éviter l'
 l'attaqué.  L'attaquant quant à lui va chercher à infecter le plus grand nombre de machines, et le plus vite possible.
 
 \begin{figure}[H]
-    \includegraphics{Images/doubleTetraedre.png}
-    \caption{concept du double tétraèdre appliqué à l'article}
-    \label{fig:Q5.1}
+    \begin{center}
+        \includegraphics{Images/doubleTetraedre.png}
+        \caption{concept du double tétraèdre appliqué à l'article}
+        \label{fig:Q5.1}
+    \end{center}
 \end{figure}
-%Pour Alex: J'ai rajouté deux trois trucs, dis moi si tu es d'accord :)
-%Pour Philippe, je suis d'accord avec ce que tu as rajouté, ça me parait bien
+
 Les aspects du tétraèdre qui sont fixes sont :
 L'environnement externe sur lequel nous ne pouvons pas agir. C'est-à-dire les facteurs extérieurs dont qui ne sont pas modifiables
-ni par l'attaqué ni par l'attaquant. %Il faut voir précisément ce que l'on considère comme facteurs environnementaux 
+ni par l'attaqué ni par l'attaquant. 
 Dans le cas présent, un premier élément serait le réseau externe: aucun des deux partis n'a de contrôle sur l'acheminement des
-paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article de s'intéresse que à
-l'effet de la topologie du réseau sur la propagation du vers. Ainsi, l'idée de modifier les ordinateurs afin de les protéger est
+paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article de s'intéresse qu'à
+l'effet de la topologie du réseau sur la propagation du ver. Ainsi, l'idée de modifier les ordinateurs afin de les protéger est
 hors champ. Par exemple, l'idée de fermer les ports non-indispensables est pertinente, mais ne rentre pas dans le cadre de cet article.  
 De plus, il semble naturel, dans le cadre de cet article, de supposer que l'attaquant ne peut altérer les ordinateurs afin de les rendre vulnérables à
 l'infection. (Même si, dans le cadre général, quand on fait une analyse de risque, il faut considérer le cas d'une attaque
@@ -306,11 +310,9 @@ physique). On peut donc ajouter ces derniers à l'environnement.
 
 Les aspects du tétraèdres qui sont modifiés sont :
 \begin{itemize}
-	\item Au niveau de l'attaqué, on va modifier les aspects de design et d'opération du réseau et des machines :
-La topologie du réseau peut être modifié de telle sorte à ralentir la propagation d'une éventuelle infection. La mise en place de
-logiciels appropriés comme des anti-virus peuvent permettre la diminution du nombre de machines infectées. La diversité des OS
-peuvent aussi ralentir la propagation. %Pour Alex: Tu es sûr que l'ajout d'un anti virus rentre dans le cadre de l'article?
-%Pour philippe. Effectivement ce n'est pas dans le cadre de l'article car il n'y a pas de référence à ce sujet. Si on se limite au cadre de l'article, on devrait n'avoir que la modification de la topologie du réseau, non ?
+	\item Au niveau de l'attaqué, on va modifier les aspects de design et d'opération du réseau:
+    La topologie du réseau peut être modifiée de telle sorte à ralentir la propagation d'une éventuelle infection. 
+
 	\item Au niveau de l'attaquant, on va modifier les aspects de design et d'opération du ver : Les caractéristiques du ver
             de telle sorte à ce qu'il se propage plus vite, qu'il soit moins rapidement détectable et tout cela pour chercher
             l'augmentation du nombre de machines infectées. (Comme exemple de modification de design, on peut considérer l'ajout
@@ -319,6 +321,7 @@ peuvent aussi ralentir la propagation. %Pour Alex: Tu es sûr que l'ajout d'un a
             malware}).
 	\end{itemize}
 \end{homeworkSection}
+
 \begin{homeworkSection}{Compléments d'études}
 Les autres aspects/méthodes qui pourraient être étudiés dans le cadre d'un problème d'optimisation où l'objectif est de limiter la vitesse de propagation d'un logiciel malveillant dans un réseau sont :
 \begin{itemize}
@@ -337,6 +340,7 @@ Les autres aspects/méthodes qui pourraient être étudiés dans le cadre d'un p
 %Effectivement, cela est vague, c'était juste un note que j'avais mis.
 \end{itemize}
 \end{homeworkSection}
+
 \begin{homeworkSection}{La diversité dans un réseau informatique}
 On peut appliquer le concept de diversité au sein d'un réseau informatique en utilisant des systèmes d'exploitation différents(Windows, Linus, Mac OS) selon le rôle de la machine dans le réseau. 
 Cette diversité prendrait la forme d'une diversité au niveau logiciel(client de mail différent, système d'exploitation, ...), les
