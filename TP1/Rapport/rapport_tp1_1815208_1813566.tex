@@ -149,9 +149,6 @@
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Modèle déterministe] % Custom section title
 
 \begin{homeworkSection}{Choix d'un modèle comportemental} % Section within problem
-    % j'ai mis en commentaires le cadre autour de la réopnse, je trouvais que c'étais un peu too much xD, mais si tu eux le
-    % remettre, fais toi plaisir.
-%\problemAnswer{ % Answer
 En regardant tout d'abord les 3 modèles, nous pouvons constater les caractéristiques suivantes pour chaque modèle :
 \begin{itemize}
     \item Modèle SI : Le modèle SI (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie ,dans une population à une ou plusieurs machines infectées, de la contagion auprès du reste de la population en ne prenant en compte que le facteur que les machines infectées vont infecter les machines saines.
@@ -293,14 +290,25 @@ l'attaqué.  L'attaquant quant à lui va chercher à infecter le plus grand nomb
     \caption{concept du double tétraèdre appliqué à l'article}
     \label{fig:Q5.1}
 \end{figure}
-
+%Pour Alex: J'ai rajouté deux trois trucs, dis moi si tu es d'accord :)
 Les aspects du tétraèdre qui sont fixes sont :
-L'environnement externe sur lequel nous ne pouvons pas agir. C'est-à-dire les facteurs extérieurs dont qui ne sont pas modifiables ni par l'attaqué ni par l'attaquant. %Il faut voir précisément ce que l'on considère comme facteurs environnementaux 
+L'environnement externe sur lequel nous ne pouvons pas agir. C'est-à-dire les facteurs extérieurs dont qui ne sont pas modifiables
+ni par l'attaqué ni par l'attaquant. %Il faut voir précisément ce que l'on considère comme facteurs environnementaux 
+Dans le cas présent, un premer élément serait le réseau externe: aucun des deux partis n'a de contrôle sur l'acheminement des
+paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article de s'intéresse que à
+l'effet de la topologie du réseau sur la propagation du vers. Ainsi, l'idée de modifier les ordinateurs afin de les protéger est
+hors champ. Par exemple, l'idée de fermer les ports non-indispensables est pertinente, mais ne rentre pas dans le cadre de cet article.  
+De plus, il semble naturel, dans le cadre de cet article, de supposer que l'attaquant ne peut altérer les ordinateurs afin de les rendre vulnérables à
+l'infection. (Même si, dans le cadre général, quand on fait une analyse de risque, il faut considérer le cas d'une attaque
+physique). On peut donc ajouter ces derniers à l'environnement.
+\newline
 
 Les aspects du tétraèdres qui sont modifiés sont :
 \begin{itemize}
 	\item Au niveau de l'attaqué, on va modifier les aspects de design et d'opération du réseau et des machines :
-La topologie du réseau peut être modifié de telle sorte à ralentir la propagation d'une éventuelle infection. La mise en place de logiciels appropriés comme des anti-virus peuvent permettre la diminution du nombre de machines infectées. La diversité des OS peuvent aussi ralentir la propagation.
+La topologie du réseau peut être modifié de telle sorte à ralentir la propagation d'une éventuelle infection. La mise en place de
+logiciels appropriés comme des anti-virus peuvent permettre la diminution du nombre de machines infectées. La diversité des OS
+peuvent aussi ralentir la propagation. %Pour Alex: Tu es sûr que l'ajout d'un anti virus rentre dans le cadre de l'article?
 	\item Au niveau de l'attaquant, on va modifier les aspects de design et d'opération du ver : Les caractéristiques du ver
             de telle sorte à ce qu'il se propage plus vite, qu'il soit moins rapidement détectable et tout cela pour chercher
             l'augmentation du nombre de machines infectées. (Comme exemple de modification de design, on peut considérer l'ajout
@@ -315,21 +323,28 @@ Les autres aspects/méthodes qui pourraient être étudiés dans le cadre d'un p
 	\item Mise en place d'un IDS pour détecter les trafics étranges sur le réseau
 	\item Mise en place d'anti-virus sur les machines
 	\item Fermer les ports inutiles sur les machines, ne garder que les ports nécessaires actifs
-	\item Essayer de détecter le ver à l'infection, par exemple si l'infection se fait par mail, le vers peut être détecter par un scan du mail
-	\item Utilisation de différents systèmes d'exploitation et de logiciels
+	\item Essayer de détecter le ver à l'infection, par exemple si l'infection se fait par mail, le vers peut être détecter
+            par un scan du mail %Pour Alex: C'est pas redondant avec l'ajout d'un anti virus?
+        \item Utilisation de différents systèmes d'exploitation et de logiciels (afin que les machines ne soient pas toutes
+            vulnérables aux mêmes attaques)
 	\item Éducation des utilisateurs sur les comportements à risque. 
 	\item Mise à jour régulière des logiciels pour combler des failles potentielles
-	\item Aspect logiciel, aspect matériel
+	\item Aspect logiciel, aspect matériel %Pour Alex: C'est pas un peu trop vaque? ou tu penses que ça passe?
 \end{itemize}
 \end{homeworkSection}
 \begin{homeworkSection}{La diversité dans un réseau informatique}
 On peut appliquer le concept de diversité au sein d'un réseau informatique en utilisant des systèmes d'exploitation différents(Windows, Linus, Mac OS) selon le rôle de la machine dans le réseau. 
 Cette diversité prendrait la forme d'une diversité au niveau logiciel(client de mail différent, système d'exploitation, ...), les
-failles de sécurité ne seront plus les même. Il pourrait aussi y avoir une diversité au niveau du matériel utilisé pour avoir des
+failles de sécurité ne seront plus les mêmes. Il pourrait aussi y avoir une diversité au niveau du matériel utilisé pour avoir des
 drivers différents, et éventuellement limiter le nombre de machines pouvant être infectées par une faille d'un driver. L'idée
-serait donc d'avoir des machines le plus différentes possibles. En effet, les systèmes d'exploitations différents ne fonctionnent
+serait donc d'avoir des machines les plus différentes possibles. En effet, les systèmes d'exploitations différents ne fonctionnent
 pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière, les failles ne sont donc pas les
 mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable de les infecter. 
+%Pour Alex: Dis moi si tu valides la suite :)
+On peut également envisager une diversité des utilisateurs, au sens où il y aurait des utilisateurs à faibles privilèges et des
+administrateurs. Les utilisateurs à faibles privilèges ne pourraient lancer que certains programmes, mais ne pourraient pas lancer
+d'installation sans intervention de l'administrateur. Ainsi, il faudrait que le ver infecte un administrateur afin de pouvoir se
+propager efficacement. (On supposerait que les administrateurs sont moins nombreux et mieux formés que les autres).
 \end{homeworkSection}
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
