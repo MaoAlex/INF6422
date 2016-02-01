@@ -151,18 +151,18 @@
 \begin{homeworkSection}{Choix d'un modèle comportemental} % Section within problem
 En regardant tout d'abord les 3 modèles, nous pouvons constater les caractéristiques suivantes pour chaque modèle :
 \begin{itemize}
-    \item Modèle SI : Le modèle SI (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie ,dans une population à une ou plusieurs machines infectées, de la contagion auprès du reste de la population en ne prenant en compte que le facteur que les machines infectées vont infecter les machines saines.
-    \item Modèle SIS : Le modèle SIS (avec S représentant le nombre de machines saines et I le nombre de machines infectées) représente l'évolution d'une épidémie dans une population à un ou plusieurs facteurs pathogènes. On considère dans ce cas que le facteur pathogène n'est que temporaire et se guérit au bout d'un laps de temps donné. Une machine infectée aura le pouvoir de "se guérir" toute seule pour repasser dans l'état sain.
-    \item Modèle SIR : Le modèles SIR (avec S représentant le nombre de machines saines, I le nombre de machines infectées et R le nombre de machines qui ont été guéries et immunisées) représente l'évolution d'une épidémie dans une population où on va introduire auprès de la population un vacin contre le ou les facteur(s) pathogène(s). Une machine infectée pourra alors recevoir le vaccin ou l'antidote et se retrouver immunisée contre l'agent pathogène.
+    \item Modèle SI : Le modèle SI (avec S représentant le nombre de machines saines et I le nombre de machines infectées) s'intéresse à l'évolution d'une épidémie ,dans une population à une ou plusieurs machines infectées, et à sa propagation auprès du reste de la population en ne prenant en compte que le fait que les machines infectées vont infecter les machines saines.
+    \item Modèle SIS : Le modèle SIS (avec S représentant le nombre de machines saines et I le nombre de machines infectées) s'intéresse à l'évolution d'une épidémie dans une population à un ou plusieurs facteurs pathogènes. On considère dans ce cas que le facteur pathogène n'est que temporaire et se guérit au bout d'un laps de temps donné. Une machine infectée aura le pouvoir de "se guérir" toute seule pour repasser dans l'état sain.
+    \item Modèle SIR : Le modèles SIR (avec S représentant le nombre de machines saines, I le nombre de machines infectées et R le nombre de machines qui ont été guéries et immunisées) représente l'évolution d'une épidémie dans une population où on va introduire auprès de la population un vaccin contre le ou les facteur(s) pathogène(s). Une machine infectée pourra alors recevoir le vaccin ou l'antidote et se retrouver immunisée contre l'agent pathogène.
 \end{itemize}
 
 En nous basant sur l'article "Optimising Networks Against Malware", le modèle comportemental qui s'appliquerait serait le modèle SI. 
 En effet, dans l'article, les auteurs s'intéressent à l'évolution d'un ver(agent pathogène) dans un réseau avec un nombre
-défini de machines (population étudiée). Les machines ne possédant pas de système immunitaire qui pourrait être représenté par un anti-virus, ou un logiciel interne qui scannerait le système pour rechercher et éliminer des élément suspects ou des facteurs externes. Les machines ne pouvant se débarrasser du vers de manière autonome, nous ne pouvons pas être dans le cas SIS.
-Et il n'y a pas de référence dans l'article à des mises à jours du système ou d'un anti-virus éventuel,
-nous pouvons conclure qu'il n'y a pas d'injection de remèdes contre les vers et que les machines n'ont nullement été guéries et immunisées contre cet agent pathogène. Nous ne pouvons pas nous trouver dans le cas du modèle SIR. 
-Enfin comme cet article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous
-pouvons donc penser que c'est bien le modèle SI qui s'appliquerait. Notons que cette conclusion est légitime de part l'absence de
+défini de machines (population étudiée). Les machines ne possédant pas de système immunitaire qui pourrait être représenté par un anti-virus, ou un logiciel interne qui scannerait le système pour rechercher et éliminer des élément suspects ou des facteurs externes. Les machines ne peuvent se débarrasser du ver de façon autonome, nous ne pouvons donc pas être dans le cas SIS.
+Et il n'y a pas de référence dans l'article à des mises à jours du système ou d'un anti-virus éventuel, ou éventuel à la mise en place de patch pour combler une quelconque faille,
+nous pouvons ainsi conclure qu'il n'y a pas d'injection de remèdes contre les vers et que les machines n'ont nullement été guéries et immunisées contre cet agent pathogène. Nous ne pouvons donc pas nous trouver dans le cas du modèle SIR. 
+Cet article étudie simplement l'évolution de l'infection d'un ensemble de machines dans différentes configurations données, nous
+pouvons en déduire que c'est bien le modèle SI qui s'appliquerait. Notons que cette conclusion est légitime de part l'absence de
 guérison (pas d'anti-virus) ainsi que l'impossibilité pour une machine de se déconnecter, ou de quitter le réseau. Pour connaître
 de façon plus précise les hypothèses utilisées dans le cadre de l'article, on pourra se reporter au premier paragraphe de la partie
 2.3 du dit article, intitulé : \it{"Markov process Model"}.
@@ -172,7 +172,7 @@ de façon plus précise les hypothèses utilisées dans le cadre de l'article, o
 %--------------------------------------------
 
 \begin{homeworkSection}{Identification des équations différentielles} % Section within problem
-    Dans la question précédente, nous avions déterminé qu'un modèle compartimental de type SI s'appliquait à l'étude de la
+    Dans la question précédente, nous avions déterminé qu'un modèle comportemental de type SI s'appliquait à l'étude de la
 propagation des logiciels malveillants. Sachant qu'un ordinateur peut être sain ou infecté, et uniquement l'un de
 ces deux états, on a la première relation:
 \[
@@ -180,7 +180,7 @@ ces deux états, on a la première relation:
 \]
 Où $N$ est la taille de la population et $S$ la taille de la population saine. Tandis que $I$ est la taille population infectée. Si de
 plus, on note $\lambda$ le nombre de contacts par machine par unité de temps, On a alors que \( \lambda \cdot I \) représente le
-nombre de machine qui ont été atteintes par une machine infecté entre deux unités de temps. Sachant que \( \frac{S}{N} \) est la
+nombre de machines qui ont été atteintes par une machine infectée entre deux unités de temps. Sachant que \( \frac{S}{N} \) est la
 proportion de machines saines à l'instant courant, on peut approximer le nombre de machines nouvellement infectées entre deux pas
 de temps par \( \lambda \cdot I \cdot \frac{S}{N} \). Ce qui nous donne l'équation différentielle suivante:
 \[
@@ -238,10 +238,10 @@ Dans l'équation différentielle présentée précédemment, le paramètre $\lam
 plus une machine peut atteindre d'autres machines entre deux pas de temps. Ainsi, si $\lambda$, augmente le nombre de machines
 qu'une machine infectée peut contaminer augmente. Une illustration graphique de ce phénomène est visible sur la figure
 \ref{fig:Q3.2}. On y voit en effet que la croissance de la courbe correspondant à $\lambda=0.05$ a une plus forte croissance que
-les autres courbes (correspondant à $\lambda=0.025$ et $\lambda=0.01$).
+les autres courbes (correspondant à $\lambda=0.025$ et $\lambda=0.01$). On peut penser aussi que le paramètre $\lambda$ traduit la probabilité d'infection au cours du temps, et en ayant un nombre de contact plus important entre les machines, cette probabilité augmente.
 
 \problemAnswer{ % Answer
-    Avant de clôre cette partie sur le modèle déterministe, il est important de noter que les équations établies dans la première
+    Avant de clore cette partie sur le modèle déterministe, il est important de noter que les équations établies dans la première
 partie ne traduisent pas la possibilité que deux machines infectées tente de contaminer la même machine.  En effet, l'équation:
 \[
     \frac{dI(t)}{dt} = \lambda \cdot I(t) \cdot \frac{S(t)}{N}
@@ -265,19 +265,19 @@ pas nécessairement sens.
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Modèle stochastique] % Roman numerals
 \begin{homeworkSection}{Caractéristiques d'un modèle stochastique}
 Modèle stochastique : Un processus stochastique est la représentation de l’évolution discrète ou en temps continu d’une variable
-aléatoire. Dans un modèle probabiliste, on s'intéresse à l'évolution de manière probabiliste du modèle.
-Dans notre cas, l’espace est dénombrable, on a donc un processus discret. On s’intéresse ici à l’évolution de la variable nombre
-de machines infectées en fonction du temps avec un pas de temps de 1 seconde. On s'intéresse à la probabilité à un instant donné,
+aléatoire. Dans un modèle stochastique, on s'intéresse à l'évolution de manière probabiliste du modèle.
+Dans notre cas, l’espace est dénombrable, on a donc un processus discret. On étudie ici l’évolution de la variable nombre
+de machines infectées en fonction du temps avec un pas de temps de 1 seconde ainsi que la probabilité à un instant donné,
 de pouvoir infecter une machine saine.  Une approche déterministe n'aurait pas été préférable, car l'évolution de l'infection
-dépend de la probabilité à infecter une nouvelle machine au cours du temps. Dans l'article, nous avons l'étude de l'évolution de
-l'infection selon 3 scénarios, dont deux possèdent un sous-réseau intermédiaire(la partie J du réseau). Or un modèle déterministe
+dépend de la probabilité à contaminer une nouvelle machine au cours du temps. Dans l'article, l'évolution de
+l'infection est étudiée selon 3 scénarios, dont deux possèdent un sous-réseau intermédiaire(la partie J du réseau). Or un modèle déterministe
 ne pourrait prendre en compte correctement la probabilité de l'infection de la passerelle (gateway) entre les deux sous-réseaux(I
-et K) ni la manière aléatoire de choisir les adresses à tester pour l'infection éventuelle.
+et K) ni la manière aléatoire de choisir les adresses à tester pour la propagation de l'infection.
 
 
-De ce fait, une approche déterministe ne pourrait capturer les caractéristiques du phénomène étudié dans cet article. Elle telle
+De ce fait, une approche déterministe ne pourrait capturer les caractéristiques du phénomène étudié dans cet article. Une telle
 approche, donnerait en effet les mêmes résultats pour les trois scénarios, (Car étant par essence déterministe, elle ne peut
-saisir le côté aléatoire du phénomène). Ainsi, l'auteur de pourrait conclure sur l'impact de la topologie d'un réseau sur la
+saisir le côté aléatoire du phénomène). Ainsi, l'auteur ne pourrait conclure sur l'impact de la topologie d'un réseau sur la
 propagation du vers.
 \end{homeworkSection}
 \end{homeworkProblem}
@@ -285,8 +285,8 @@ propagation du vers.
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Performance et optimisation] % Roman numerals
 \begin{homeworkSection}{Application du concept du double-tétraèdre}
 En nous situant dans un contexte d'optimisation, toujours en référant à l'article, nous pouvons situer notre double-tétraèdre dans un contexte d'optimisation.
-Il faut prendre en compte les différentes stratégies possibles pour éviter l'infection et la propagation des vers au niveau de
-l'attaqué.  L'attaquant quant à lui va chercher à infecter le plus grand nombre de machines, et le plus vite possible.
+Il nous faut prendre en compte les différentes stratégies possibles pour éviter l'infection et la propagation des vers au niveau de
+l'attaqué. Alors que L'attaquant va chercher lui à infecter le plus grand nombre de machines, et le plus vite possible.
 
 \begin{figure}[H]
     \begin{center}
@@ -300,7 +300,7 @@ Les aspects du tétraèdre qui sont fixes sont :
 L'environnement externe sur lequel nous ne pouvons pas agir. C'est-à-dire les facteurs extérieurs dont qui ne sont pas modifiables
 ni par l'attaqué ni par l'attaquant. 
 Dans le cas présent, un premier élément serait le réseau externe: aucun des deux partis n'a de contrôle sur l'acheminement des
-paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article de s'intéresse qu'à
+paquets. On peut également ajouter certains éléments de l'environnement interne: les ordinateurs du sous-réseaux. En effet, l'article ne s'intéresse qu'à
 l'effet de la topologie du réseau sur la propagation du ver. Ainsi, l'idée de modifier les ordinateurs afin de les protéger est
 hors champ. Par exemple, l'idée de fermer les ports non-indispensables est pertinente, mais ne rentre pas dans le cadre de cet article.  
 De plus, il semble naturel, dans le cadre de cet article, de supposer que l'attaquant ne peut altérer les ordinateurs afin de les rendre vulnérables à
@@ -347,15 +347,15 @@ Cette diversité prendrait la forme d'une diversité au niveau logiciel(client d
 failles de sécurité ne seront plus les mêmes. Il pourrait aussi y avoir une diversité au niveau du matériel utilisé pour avoir des
 drivers différents, et éventuellement limiter le nombre de machines pouvant être infectées par une faille d'un driver. L'idée
 serait donc d'avoir des machines les plus différentes possibles. En effet, les systèmes d'exploitations différents ne fonctionnent
-pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière, les failles ne sont donc pas les
-mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable de les infecter. 
+pas de la même façon, les logiciels et les programmes ne se lancent pas de la même manière. Par conséquent les failles ne sont pas les
+mêmes, ce qui obligerait l'attaquant à créer un ver beaucoup plus complexe qui pourrait être capable d'infecter des systèmes très différents. 
 %Pour Alex: Dis moi si tu valides la suite :)
 %Pour philippe : Je valide, c'est un point que j'avais oublié mais bien pertinent
 On peut également envisager une diversité des utilisateurs, au sens où il y aurait des utilisateurs à faibles privilèges et des
 administrateurs. Les utilisateurs à faibles privilèges ne pourraient lancer que certains programmes, mais ne pourraient pas lancer
 d'installation sans intervention de l'administrateur. Ainsi, il faudrait que le ver infecte un administrateur afin de pouvoir se
 propager efficacement. (On supposerait que les administrateurs sont moins nombreux et mieux formés que les autres).
-On pourrait penser même à une hiérarchisation des droits d'accès des employés selon leur poste et leur besoin dans le réseau. L'idée étant d'attribuer aux employés juste les droits sur les fichiers/systèmes dont ils ont besoin pour leur travail et rien de plus. Par exemple, en plus de la séparation du réseau selon le domaine dans l'entreprise, les employés n'auront pas accès, ni ne pourront se connecter aux machines qui ne sont pas dans leur domaine de travail.
+On pourrait penser même à une hiérarchisation des droits d'accès des employés selon leur poste et leur besoin dans le réseau. L'idée étant d'attribuer aux employés juste les droits sur les fichiers/systèmes dont ils ont besoin pour leur travail et rien de plus. Par exemple, en plus de la séparation du réseau selon le secteur dans l'entreprise, les employés n'auront pas accès, ni ne pourront se connecter aux machines qui ne sont pas dans leur secteur de travail.
 \end{homeworkSection}
 \end{homeworkProblem}
 %----------------------------------------------------------------------------------------
