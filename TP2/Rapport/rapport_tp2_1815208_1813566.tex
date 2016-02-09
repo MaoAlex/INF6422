@@ -158,14 +158,42 @@
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Méthode statistique] % Custom section title
 
 \begin{homeworkSection}{Régression logitique} % Section within problem
+L'autre 33\% des données va servira à tester le modèle conçus à partir de la phase d'apprentisage, c'est donc l'échantillon test sur lequel on connaît on va vérifier la véracité de notre modèle.
+(tableau avec les valeur des variables indépendantes).
+Le coefficient correspond à ...
+Son "odd ratio" correspond à la corrélation entre la probabilité que le courriel soit un spam dans la population d'apprentissage par rapport à la probabilité que celui-ci le soit dans la population que l'on teste. C'est une mesure du facteur de spam.
+
+
 \end{homeworkSection}
 
 %--------------------------------------------
 
 \begin{homeworkSection}{Etude du Modèle} % Section within problem
+
+Pour notre modèle de régression linéaire, on a :
+\begin{itemize}
+	\item Un taux de vrai positif de 0.891 pour les spams et un taux de vrai positif de 0.954 pour les mails non-spam (la moyenne étant de 0.929), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant des spams et qui sont réellement des mails 
+	\item un taux de faux positif de 0.046 qui est le taux de mail considérés comme des spams mais à tort. Et un taux de faux positif de 0.109 pour les mails considérés comme des non-spams alors qu'ils le sont
+	\item une précision de (0.926 pour les spams/0.931 pour les mails normaux) 0.929 de moyenne.
+La précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont effectivement, sur le nombre total de mail qui sont des spams pour la première valeur. Pour la seconde c'est la même chose mais avec les mails qui ne sont pas des spams.
+La moyenne se fait donc sur le nombre de mails qui ont été bien catégorisé sur le nombre total de mail.
+	\item une sensibilité (recall) de (0.891/0.954) 0.929. On remarque que la sensibilité a les mêmes valeurs que les true positives
+	\item un F-measure de (0.908/0.942) 0.929. Ces valeurs ont l'air d'être la moyenne entre la précision et la sensibilité.
+	\item une aire sous la courbe (ROC area) de 0.971. Cette valeur mesure la performance de notre modèle
+%A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+	\item On a pour matrice de confusion : {{550, 67}, {44, 903}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b. Cette matrice représente le nombre de machines catégorisées comme suivantes : spam étant spam, spam étant non spam, courriel ordinaire étant courriel ordinaire et  courriel ordinaire étant spam.
+\end{itemize}
+
 \end{homeworkSection}
 
 \begin{homeworkSection}{Tokenization attack} 
+Un exemple de contre-mesure de type Tokenization attack qu'un spammeur pourrait facilement utiliser afin de contourner un filtre basé uniquement sur la fréquence d'apparition de certains mots est de permuter la place de certaines lettres dans certains mots, ou de créer de manière volontaire des fautes d'orthographes qui n'altéreront pas la signification du texte.
+Pour le message suivant nous pourrions avoir le résultat :
+
+DEAR RECEIVER,
+
+You have just recieved a Talban virus. Since we are not so technlogoicaly advanced in Afganistan, this is a MANUAL vrus. Please click on this lnk(http://clickeme.com) to delte all the files on your hard disk and send this mal to everyone you know. 
+%voir article http://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html
 \end{homeworkSection}
 %--------------------------------------------
 
@@ -176,7 +204,13 @@
 %----------------------------------------------------------------------------------------
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Apprentissage automatique] % Roman numerals
-
+Parmi les méthodes d'apprentissage automatique les plus courantes, nous avons :
+\begin{itemize}
+\item l'apprentissage non-supervisé ("clustering") est un apprentissage automatique. Il s'agit pour un logiciel de diviser un groupe hétérogène de données, en sous-groupes de manière que les données considérées comme les plus similaires soient associées au sein d'un groupe homogène et qu'au contraire les données considérées comme différentes se retrouvent dans d'autres groupes distincts ; l'objectif étant de permettre une extraction de connaissance organisée à partir de ces données %définition de wikipédia https://fr.wikipedia.org/wiki/Apprentissage_non_supervis%C3%A9
+\item L'apprentissage semi-supervisé est un apprentissage.
+L'apprentissage semi-supervisé est une classe de techniques d'apprentissage automatique qui utilise un ensemble de données étiquetées et non-étiquetés. Il se situe ainsi entre l'apprentissage supervisé qui n'utilise que des données étiquetées et l'apprentissage non-supervisé qui n'utilise que des données non-étiquetées. Il a été démontré que l'utilisation de données non-étiquetées, en combinaison avec des données étiquetées, permet d'améliorer significativement la qualité de l'apprentissage. Un autre intérêt provient du fait que l'étiquetage de données nécessite l'intervention d'un utilisateur humain. Lorsque les jeux de données deviennent très grands, cette opération peut s'avérer fastidieuse. Dans ce cas, l'apprentissage semi-supervisé, qui ne nécessite que quelques étiquettes, revêt un intérêt pratique évident. %wikipédia https://fr.wikipedia.org/wiki/Apprentissage_semi-supervis%C3%A9
+\item L'apprentissage supervisé ("supervised learning")est une technique d'apprentissage automatique où l'on cherche à produire automatiquement des règles à partir d'une base de données d'apprentissage contenant des « exemples » (en général des cas déjà traités et validés). %wikipédia https://fr.wikipedia.org/wiki/Apprentissage_supervis%C3%A9 
+\end{itemize}
 %--------------------------------------------
 
 \begin{homeworkSection}{Caractéristiques des méthodes} % Using the problem name elsewhere
@@ -185,12 +219,42 @@
 %--------------------------------------------
 
 \begin{homeworkSection}{Classification naïve bayésienne}
+Pour notre modèle de classification naïve bayésienne, on a :
+\begin{itemize}
+	\item Un taux de vrai positif de 0.945 pour les spams et un taux de vrai positif de 0.673 pour les mails non-spam (la moyenne étant de 0.78), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant des spams et qui sont réellement des mails 
+	\item un taux de faux positif de 0.327 qui est le taux de mail considérés comme des spams mais à tort. Et un taux de faux positif de 0.0055 pour les mails considérés comme des non-spams alors qu'ils le sont. moyenne de 0.163
+	\item une précision de (0.653 pour les spams/0.949 pour les mails normaux) 0.832 de moyenne.
+La précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont effectivement, sur le nombre total de mail qui sont des spams pour la première valeur. Pour la seconde c'est la même chose mais avec les mails qui ne sont pas des spams.
+La moyenne se fait donc sur le nombre de mails qui ont été bien catégorisé sur le nombre total de mail.
+	\item une sensibilité (recall) de (0.945/0.673) 0.78. On remarque que la sensibilité a les mêmes valeurs que les true positives
+	\item un F-measure de (0.772/0.787) 0.781. Ces valeurs ont l'air d'être la moyenne entre la précision et la sensibilité. %définition à revoir
+	\item une aire sous la courbe (ROC area) de 0.935. Cette valeur mesure la performance de notre modèle
+	\item On a pour matrice de confusion : {{583, 34}, {310, 637}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
+%A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyenne, ce modèle à des résultats moins bon que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche un part très importante des mails normaux comme des spams (1/3 environ), ce qui n'est pas une bonne chose du tout et pourrait être préjudiciable aux utilisateurs
+\end{itemize}
 \end{homeworkSection}
 
 \begin{homeworkSection}{Les arbres décisionnels}
+Pour notre modèle de random forest, on a :
+\begin{itemize}
+	\item Un taux de vrai positif de 0.927 pour les spams et un taux de vrai positif de 0.963 pour les mails non-spam (la moyenne étant de 0.949), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant des spams et qui sont réellement des mails 
+	\item un taux de faux positif de 0.037 qui est le taux de mail considérés comme des spams mais à tort. Et un taux de faux positif de 0.073 pour les mails considérés comme des non-spams alors qu'ils le sont. moyenne de 0.059
+	\item une précision de (0.927 pour les spams/0.963 pour les mails normaux) 0.949 de moyenne.
+La précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont effectivement, sur le nombre total de mail qui sont des spams pour la première valeur. Pour la seconde c'est la même chose mais avec les mails qui ne sont pas des spams.
+La moyenne se fait donc sur le nombre de mails qui ont été bien catégorisé sur le nombre total de mail.
+	\item une sensibilité (recall) de (0.927/0.963) 0.949. On remarque que la sensibilité a les mêmes valeurs que les true positives
+	\item un F-measure de (0.935/0.958) 0.949. Ces valeurs ont l'air d'être la moyenne entre la précision et la sensibilité. %définition à revoir
+	\item une aire sous la courbe (ROC area) de 0.987. Cette valeur mesure la performance de notre modèle
+	\item On a pour matrice de confusion : {{572, 45}, {35, 912}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
+%A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+Comparativement aux deux précédents modèles, ce que nous pouvons voir, est que les valeurs pour les différents élément sont toutes meilleures. Nous pouvons donc en déduire que ce modèle est préférable
+\end{itemize}
 \end{homeworkSection}
 
 \begin{homeworkSection}{Contre-mesures \textit{Satistical}}
+Un exemple de contre-mesure de type Statistical attack qu'un spammeur pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage automatique est l'utilisation de synonymes pour les mots, cela abaisserait la fréquence des mots qui sont considérés comme très présent dans les spams. % A compléter
+Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
 \end{homeworkSection}
 \end{homeworkProblem}
 
@@ -199,6 +263,8 @@
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Apprentissage automatique] % Roman numerals
 
 \begin{homeworkSection}{Comparaison des résultats}
+Au niveau des résultats, nous pouvons voir que la régression linéaire nous fournit un modèle correcte, le modèle de classification naïve bayésienne nous fournit un modèle non pertinent car il considère plus de 30\% des mails comme spam alors qu'ils ne le sont pas. Et le modèle de forêts d'arbres décisionnels nous donne le meilleur résultat.
+C'est donc cette méhodes qui semblent donner les meilleures performances pour le jeu de données spambase
 \end{homeworkSection}
 
 \begin{homeworkSection}{Avantage et inconvénient d'un modèle non supervisé}
