@@ -214,9 +214,9 @@ qu'un mail contenant le mot \textit{order} ou \textit{adresses} a plus de chance
 \begin{homeworkSection}{Etude du Modèle} % Section within problem
 
 Pour notre modèle de régression linéaire, on a : 
-\begin{itemize} 
+\begin{enumerate} 
     \item Un taux de vrai positif de 0.891 pour les spams et un taux de vrai positif de 0.954 pour les mails non-spam (la moyenne
-étant de 0.929). Le taux de vrai positif représente les mails qui ont été déclaré comme appartenant à une certaine catégorie et
+étant de 0.929). Le taux de vrai positif représente les mails qui ont été déclarés comme appartenant à une certaine catégorie et
 qui appartienne réellement à cette catégorie.
     \item Un taux de faux positifs désigne la proportion de mails d'une catégorie qui a été désignée à tort comme appartenant à
 cette catégorie. Dans le cas présent, on a un taux de faux positif de 0.046 pour les spam et de 0.0109 pour les mails normaux.
@@ -231,14 +231,14 @@ d'une catégorie est proche du nombre réel). Une sensibilité (recall) de 0.891
 0.954 pour les mails classiques, ce qui donne une moyenne de  0.929. On remarque que la sensibilité a les mêmes valeurs que les
 true positives 
     \item La F-measure se calcule par la formule $2 \cdot \frac{recall * precision}{recall +
-precision}$. Ici elle vaut pour le spam (respectivement pour les mails normaux) 0.908 (respectivement 0.942. Cette valeur
+        precision}$. Ici elle vaut pour le spam (respectivement pour les mails normaux) 0.908 (respectivement 0.942). Cette valeur
 sert principalement de métrique pour comparer les performances de différents algorithmes, plus sa valeur est élevée plus
 l'algorithme est supposé performant. En revanche, il n'y a pas vraiment d'interprétation pratique de cette valeur.
     \item une aire sous la courbe (ROC area) de 0.971. Cette valeur mesure la performance de notre modèle. Elle désigne l'aire
 sous la courbe lorsque l'on trace le taux de vrais positifs en fonction de taux de faux positifs pour un classificateur
 donné (dans le cas présent on peut prendre une valeur seuil de la fréquence de certains mots). L'idée est que plus cette valeur
 est élevée meilleur est le test. En effet, plus cette valeur est élevée, plus la courbe s'éloige de la droite identité et donc
-plus elle se rapproche du point (0,1) quo caractèrise un test parfait.
+plus elle se rapproche du point (0,1) qui caractèrise un test parfait.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
         \item La matrice de confusion est visible sur le tableau \ref{tab:matrix}, les deux premières colonnes caractérisent les
 résultats obtenus lors des tests. La première colonne correspond aux mails détectés comme spam, tandis que la seconde correspond
@@ -251,21 +251,32 @@ légitimes.
         \label{tab:matrix}
     \end{center}
 \end{table}
-\end{itemize} 
+\end{enumerate} 
 
 
 \end{homeworkSection}
 
-\begin{homeworkSection}{Tokenization attack} Un exemple de contre-mesure de type Tokenization attack qu'un spammeur pourrait
+\begin{homeworkSection}{Tokenization attack} 
+    Un exemple de contre-mesure de type Tokenization attack qu'un spammeur pourrait
     facilement utiliser afin de contourner un filtre basé uniquement sur la fréquence d'apparition de certains mots est de
     permuter la place de certaines lettres dans certains mots, ou de créer de manière volontaire des fautes d'orthographes qui
     n'altéreront pas la signification du texte.  Pour le message suivant nous pourrions avoir le résultat :
 
+{\it
 DEAR RECEIVER,
 
 You have just recieved a Talban virus. Since we are not so technlogoicaly advanced in Afganistan, this is a MANUAL vrus. Please
 click on this lnk(http://clickeme.com) to delte all the files on your hard disk and send this mal to everyone you know. 
+}
 %voir article http://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html
+
+Notons que même si cette stratégie est utilisée plusieurs fois par mot, le texte reste lisible. Et donc, malgré une orthographe
+douteuse, le mail reste compréhensile et ne gêne donc pas l'effet du spam. De ce fait, les personnes qui seraient tombées dans le
+piège avec un mail bien orthograohié, tomberont probablement dans le piège pour la version mal-orthographiée.
+
+Par ailleurs, s'il manque que quelques lettres, cela pourra être interprété comme des fautes de frappe, et donc ne nuirait pas au
+but du spam.
+
 \end{homeworkSection}
 %--------------------------------------------
 
@@ -275,30 +286,28 @@ click on this lnk(http://clickeme.com) to delte all the files on your hard disk 
 %----------------------------------------------------------------------------------------
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Apprentissage automatique] % Roman numerals 
+\begin{homeworkSection}{Caractéristiques des méthodes} % Using the problem name elsewhere 
     Parmi les méthodes d'apprentissage automatique les plus courantes, nous avons : 
-\begin{itemize} 
-    \item l'apprentissage non-supervisé ("clustering")
-            est un apprentissage automatique. Il s'agit pour un logiciel de diviser un groupe hétérogène de données, en
-            sous-groupes de manière que les données considérées comme les plus similaires soient associées au sein d'un groupe
-            homogène et qu'au contraire les données considérées comme différentes se retrouvent dans d'autres groupes distincts ;
-            l'objectif étant de permettre une extraction de connaissance organisée à partir de ces données %définition de
-            wikipédia %\url{https://fr.wikipedia.org/wiki/Apprentissage_non_supervis%C3%A9} 
-            \item L'apprentissage semi-supervisé est un
-            apprentissage.  L'apprentissage semi-supervisé est une classe de techniques d'apprentissage automatique qui utilise un
-            ensemble de données étiquetées et non-étiquetés. Il se situe ainsi entre l'apprentissage supervisé qui n'utilise que
-            des données étiquetées et l'apprentissage non-supervisé qui n'utilise que des données non-étiquetées. Il a été
-            démontré que l'utilisation de données non-étiquetées, en combinaison avec des données étiquetées, permet d'améliorer
-            significativement la qualité de l'apprentissage. Un autre intérêt provient du fait que l'étiquetage de données
-            nécessite l'intervention d'un utilisateur humain. Lorsque les jeux de données deviennent très grands, cette opération
-            peut s'avérer fastidieuse. Dans ce cas, l'apprentissage semi-supervisé, qui ne nécessite que quelques étiquettes,
-            revêt un intérêt pratique évident. %wikipédia https://fr.wikipedia.org/wiki/Apprentissage_semi-supervis%C3%A9 
-        \item L'apprentissage supervisé ("supervised learning")est une technique d'apprentissage automatique où l'on cherche à
-            produire automatiquement des règles à partir d'une base de données d'apprentissage contenant des « exemples » (en
-            général des cas déjà traités et validés). %wikipédia https://fr.wikipedia.org/wiki/Apprentissage_supervis%C3%A9
-    \end{itemize}
+\begin{enumerate} 
+    \item L'apprentissage non-supervisé consiste à donner un jeu de données à l'ordinateur, ces données seront brutes,
+c'est-à-dire qu'elles n'auront pas été classifiées ni étudiées. Il n'y aura pas non plus de notion de classe qui sera communiquée
+à l'ordinateur. L'ordinateur devra lui-même extraire des classes des données et ce sera à l'homme d'interpréter le sens de ces
+classes. Dans le cas présent, c'est comme si on avait une base de mails non-analysés, et qu'on demandait à l'ordinateur d'en
+extraire des catégories.
+%définition de wikipédia \url{https://fr.wikipedia.org/wiki/Apprentissage_non_supervisé} 
+            \item L'apprentissage semi-supervisé est une classe de techniques d'apprentissage automatique qui utilise un
+ensemble de données étiquetées et non-étiquetés. (Au contraire des deux autres méthodes qui utilisent soit l'un
+soit l'autre). Il a été démontré que l'utilisation combinée des données étiquetées et non étiquetées, permet d'améliorer
+significativement la qualité de l'apprentissage. Notons que l'utilisation de données non étiquetées permet de réduire
+l'intervention humaine: étiqueter de grands jeux de données peut être fastidieux
+%wikipédia https://fr.wikipedia.org/wiki/Apprentissage_semi-supervis%C3%A9 
+        \item L'apprentissage supervisé consiste à répartir des données dans des classes pré-existantes (issues de l'intuition).
+En se basant sur des exemples connus issus de différentes classes. Cela se fait en deux phases, une d'apprentissage où l'on
+extrait un modèle pour les membres des différentes classes, puis une seconde phase où on prédit la classe de nouvelles données.
+(On notera que la régression logistique faite en auparavant appartient à cette catégorie).
+\end{enumerate}
 %--------------------------------------------
 
-\begin{homeworkSection}{Caractéristiques des méthodes} % Using the problem name elsewhere 
 \end{homeworkSection}
 
 %--------------------------------------------
