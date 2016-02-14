@@ -337,29 +337,68 @@ extrait un modèle pour les membres des différentes classes, puis une seconde p
 Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyenne, ce modèle à des résultats moins bon
 que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche un part très
 importante des mails normaux comme des spams (1/3 environ), ce qui n'est pas une bonne chose du tout et pourrait être
-préjudiciable aux utilisateurs \end{itemize} \end{homeworkSection}
+préjudiciable aux utilisateurs 
+\end{itemize} 
 
-\begin{homeworkSection}{Les arbres décisionnels} Pour notre modèle de random forest, on a : \begin{itemize} \item Un taux de vrai
+\begin{table}[H]
+    \begin{center}
+        \input{Tableau/naiveBayesperf.tex} 
+        \caption{les résultats de la classification naïve bayésienne}
+        \label{tab:naibres}
+    \end{center}
+\end{table}
+\begin{table}[H]
+    \begin{center}
+        \input{Tableau/matrixBayes.tex} 
+        \caption{Matrice de confusion pour la classification naïve bayésienne}
+        \label{tab:matrixBayes}
+    \end{center}
+\end{table}
+\end{homeworkSection}
+
+\begin{homeworkSection}{Les arbres décisionnels} Pour notre modèle de random forest, on a : 
+\begin{itemize} 
+    \item Un taux de vrai
             positif de 0.927 pour les spams et un taux de vrai positif de 0.963 pour les mails non-spam (la moyenne étant de
             0.949), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant des spams et qui
-            sont réellement des mails \item un taux de faux positif de 0.037 qui est le taux de mail considérés comme des spams
+            sont réellement des mails
+    \item un taux de faux positif de 0.037 qui est le taux de mail considérés comme des spams
             mais à tort. Et un taux de faux positif de 0.073 pour les mails considérés comme des non-spams alors qu'ils le sont.
-        moyenne de 0.059 \item une précision de (0.927 pour les spams/0.963 pour les mails normaux) 0.949 de moyenne.  La
+        moyenne de 0.059 
+    \item une précision de (0.927 pour les spams/0.963 pour les mails normaux) 0.949 de moyenne.  La
             précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont effectivement, sur le
             nombre total de mail qui sont des spams pour la première valeur. Pour la seconde c'est la même chose mais avec les
             mails qui ne sont pas des spams.  La moyenne se fait donc sur le nombre de mails qui ont été bien catégorisé sur le
-        nombre total de mail.  \item une sensibilité (recall) de (0.927/0.963) 0.949. On remarque que la sensibilité a les mêmes
-        valeurs que les true positives \item un F-measure de (0.935/0.958) 0.949. Ces valeurs ont l'air d'être la moyenne entre la
-            précision et la sensibilité. %définition à revoir \item une aire sous la courbe (ROC area) de 0.987. Cette valeur
-        mesure la performance de notre modèle \item On a pour matrice de confusion : {{572, 45}, {35, 912}}, avec la première
+        nombre total de mail.  
+    \item une sensibilité (recall) de (0.927/0.963) 0.949. On remarque que la sensibilité a les mêmes
+        valeurs que les true positivesm
+    \item un F-measure de (0.935/0.958) 0.949. Ces valeurs ont l'air d'être la moyenne entre la
+            précision et la sensibilité. %définition à revoir
+    \item une aire sous la courbe (ROC area) de 0.987. Cette valeur
+        mesure la performance de notre modèle 
+    \item On a pour matrice de confusion : {{572, 45}, {35, 912}}, avec la première
             ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
 Comparativement aux deux précédents modèles, ce que nous pouvons voir, est que les valeurs pour les différents élément sont toutes
 meilleures. Nous pouvons donc en déduire que ce modèle est préférable 
 \end{itemize} 
+\begin{table}[H]
+    \begin{center}
+        \input{Tableau/rdmForstPerf.tex} 
+        \caption{les résultats de la classification random forest}
+        \label{tab:naibres}
+    \end{center}
+\end{table}
+\begin{table}[H]
+    \begin{center}
+        \input{Tableau/matrixRandonForest.tex} 
+        \caption{Matrice de confusion pour la classification random forest}
+        \label{tab:matrixRndFrst}
+    \end{center}
+\end{table}
 \end{homeworkSection}
 
-\begin{homeworkSection}{Contre-mesures \textit{Satistical}} Un exemple de contre-mesure de type Statistical attack qu'un spammeur
+\begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} Un exemple de contre-mesure de type Statistical attack qu'un spammeur
     pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
     automatique est l'utilisation de synonymes pour les mots, cela abaisserait la fréquence des mots qui sont considérés comme
     très présent dans les spams. % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
