@@ -123,7 +123,6 @@
 \normalsize\vspace{0.1in}\small{pour\ le\ \hmwkDueDate}\\
 \vspace{3in}
 }
-
 \author{\textbf{\hmwkAuthorName}}
 \date{} % Insert date here if you want it to appear below your name
 
@@ -446,7 +445,7 @@ répétitions de mêmes mots. (Ce qui permettrait de déjouer la technique de bo
     Au niveau des résultats, nous avons les moins bonne valeurs pour la méthode de classification naïve bayésienne, les valeurs de la méthode de régression linéaire sont meilleurs mais le dernier modèle utilisé nous fournit les meilleurs résultat au niveau valeurs moyennes(mais au niveau du taux de vrai positif  pour la détection de mails classiques, le taux de faux positif pour le mail, la précision pour les spam et la sensibilité pour les mails classiques). Nous pouvons voir que la régression linéaire nous
 fournit un modèle correcte que nous pouvons penser tout même assez bon, le modèle de classification naïve bayésienne nous fournit un modèle non pertinent car il considère
 plus de 30\% des mails comme spam alors qu'ils ne le sont pas, il n'est donc pas exploitable en réalité car trop préjudiciable pour des usagers. Et le modèle de forêts d'arbres décisionnels nous donne le
-meilleur résultat, on peut donc penser que c'est un bon modèle, ou tout du moins, un bon modèle pour notre jeu de données.  C'est donc cette méthode qui semblent donner les meilleures performances pour le jeu de données spambase
+meilleur résultat, on peut donc penser que c'est un bon modèle, ou tout du moins, un bon modèle pour notre jeu de données.  C'est donc cette méthode qui semblent donner les meilleures performances pour le jeu de données spambase.
 
 Références :
 \begin{itemize}
@@ -465,7 +464,7 @@ Références :
 Un avantage de l'utilisation des filtres basés sur l'apprentissage machine supervisé est que l'on est confiant quand à la répartition des données que nous allons avoir. En effet avec l'apprentissage machine supervisé, nous fournissons un jeu de données test connus sur lesquels nous connaissons les résultats et donc les classes sur lesquelles ils sont répartis, nous pouvons donc vérifier l'efficacité de notre filtre sur la détection de spams. Cependant l'inconvénient d'un tel modèle est que nous devons fournir les données d'entrées sur lesquelles nous devons déterminé la classe auquel elles appartiennent. En estimant que pour créer un modèle solide et fiable, il nous faudrait une quantité de données en entrée que nous avons déjà traité en quantité suffisante, diversifiée et donc assez importante, ce procédé demande donc du temps pour la préparation et la classification des données d'entrées.
  
 Au niveau de l'apprentissage machine non supervisé, il est intéressant de l'utiliser dans le cas où nous voudrions répartir en différentes classes des données volumineuses sur lesquelles nous n'avons a priori pas beaucoup d'informations. Cette méthode, nous permet donc d'avoir un premier tri, avec une intervention humaine relativement faible, qui se déroulera à la fin du processus pour interpréter les résultats de notre filtre. Nous pouvons aussi optimiser un critère visant à regrouper nos données dans des classes le plus homogène possibles mais distinctes entre elles. L'inconvénient d'une telle méthode est que nous ne savons pas à quoi nous attendre au niveau du résultat, étant donné que nous n'avons que peu voir par d'idées sur comment seront répartis les données en entrée. Nous pouvons des répartitions des données intéressantes voire très bonnes comme le contraire, où nous aurons une répartition des données dont nous ne verrons pas forcément le lien ou une répartition des données dans des classes qui ne nous intéresse pas.
-\newLine
+
 Références :
 \begin{itemize}
 	\item Apprentissage non supervisé, Site Wikipédia
@@ -496,7 +495,7 @@ plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra 
 on pourra bloquer les mails ayant une large liste de destinaires, car ceux-ci sont susceptibles d'être du spam.
 Nous pourrions aussi filtrer les mails selon leur adresse IP émettrice pour avoir une idée de leur provenance (pays émetteur notamment) et le propriétaire de cette adresse. Nous pouvons aussi considérer la configuration du serveur émetteur, et vérifier si le protocole SMTP s'est bien déroulé, s'il y a bien eu le respect de l'acquittement. On peut ainsi vérifier ainsi la qualité du serveur émetteur.
 Et nous pouvons aussi analyser l'en-tête du mail, en étudiant les récepteurs, le sujet du message, et la date d'envoi.
-\newLine
+
 Références :
 \begin{itemize}
 \item Sélection de Caractéristiques pour le Filtrage de Spams, Kamilia MENGHOUR, Labiba SOUICI-MESLATI
