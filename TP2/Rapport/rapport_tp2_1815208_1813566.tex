@@ -418,10 +418,20 @@ meilleures. Nous pouvons donc en déduire que ce modèle est préférable
 \end{table}
 \end{homeworkSection}
 
-\begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} Un exemple de contre-mesure de type Statistical attack qu'un spammeur
-    pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
-    automatique est l'utilisation de synonymes pour les mots, cela abaisserait la fréquence des mots qui sont considérés comme
-    très présent dans les spams, on aurait donc une diffusion de la fréquence des mots ce qui permet d'avoir flouer les fréquences des mots sensibles.  % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
+\begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} 
+    Un exemple de contre-mesure de type Statistical attack qu'un spammeur
+pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
+automatique est l'utilisation de synonymes pour les mots. Le spammeur pourrait avoir une liste de synônymes/différentes phrases
+que le spammeur choisirait aléatoirement au moment d'envoyer le mail. Il s'agirait ainsi d'éviter la répétition des mots "louches"
+ce qui rendrait le mail plus dur à identifier en tant que spam.
+Une autre méthode serait de rajouter un bourrage de texte à la fin du mail afin de noyer les fréquences des mots "coupables" par
+un grands nombre de mots tirés au hasard.
+\newline
+
+Les comtres-mesures possibles seraient d'utiliser des tokens et non plus des mots pour calculer les fréquences. Chaque token
+représenterait une classe de mots tous synonymes. Puis de vérifier si le mail a une taille raisonnable, et s'il ne s'agit de
+répétitions de mêmes mots. (Ce qui permettrait de déjouer la technique de bourrage). 
+    % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
 \end{homeworkSection} 
 \end{homeworkProblem}
 
