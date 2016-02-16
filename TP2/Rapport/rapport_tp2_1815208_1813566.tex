@@ -375,7 +375,6 @@ noeuds son espace sera divisé en $n$ parties). (Le résultat est alors la caté
 appartient). Le modèle crée plusieurs arbres (chacun associé à une partition des données) et
 fait la moyenne des résultats des différents arbres pour en déduire un résultat final. Notons que cette méthode est connue pour
 pouvoir facilement s'adapter à de grands espaces de données.
-
     \newline
     Pour notre modèle de random forest, on a : 
 \begin{itemize} 
@@ -460,13 +459,19 @@ reprendrait les principes des listes noires, blanches et grises. Les adresses id
 de spam seraient dans la liste noire et l'utilisateur ne verrait plus les mails associés à ces adresses. \'A l'inverse il
 recevrait toujours ceux de la liste blanche quel que soit leur contenu. Les adresses ne figurant sur aucune des deux listes
 précédentes seraient considérées dans la liste grise et devrait envoyer plusieurs fois leur mail afin que l'utilisateur final les
-recçoive. (On considère que les spam envoie rarement plusieurs fois le même message aux utilisateurs). On pourrait également
-envisager un filtrage sur le contenu, si le message contient un exéutable ou une archive protégée par un mot de passe (dont on ne
-pourrait analyser le contenu), il serait refusé afin de limiter la propagation de spam destiné à propager des virus. D'autan plus
-qu'un utilisateur normal ne devrait pas envoyer d'exécutable par mail. De même, on pourrait refuser les mails contenant des images
+reçoive. (On considère que les spam envoient rarement plusieurs fois le même message aux utilisateurs). On pourrait également
+envisager un filtrage sur le contenu, si le message contient un exécutable ou une archive protégée par un mot de passe (dont on ne
+pourrait analyser le contenu), il serait refusé afin de limiter la propagation de spam destiné à propager des virus. D'autant plus
+qu'un utilisateur normal ne devrait pas envoyer d'exécutable par mail (C'est ce qui est fait notamment dans la messagerie de google, qui ne permet pas d'envoyer directement un exécutable). De même, on pourrait refuser les mails contenant des images
 dans le corps du texte, car il pourrait s'agir d'une tentative d'un spammeur de dissimuler son texte au sein d'images (qui sont
 plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra juste mettre ses images en pièces-jointes. Enfin,
 on pourra bloquer les mails ayant une large liste de destinaires, car ceux-ci sont susceptibles d'être du spam.
+Nous pourrions aussi filtrer les mails selon leur adresse IP émettrice pour avoir une idée de leur provenance (pays émetteur notamment) et le propriétaire de cette adresse. Nous pouvons aussi considérer la configuration du serveur émetteur, et vérifier si le protocole SMTP s'est bien déroulé, s'il y a bien eu le respect de l'acquittement. On peut ainsi vérifier ainsi la qualité du serveur émetteur.
+Et nous pouvons aussi analyser l'en-tête du mail, en étudiant les récepteurs, le sujet du message, et la date d'envoi.
+
+\url{https://www.researchgate.net/publication/220761239_Selection_de_Caracteristiques_pour_le_Filtrage_de_Spams}
+\url{http://www.altospam.com/actualite/2007/07/comment-un-spam-est-detecte/}
+\url{http://www.altospam.com/fr/panorama-des-technologies-antispam.php}	
 \end{homeworkSection}
 
 
