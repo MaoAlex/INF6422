@@ -1,3 +1,4 @@
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%{{{
 % Structured General Purpose Assignment
 % LaTeX Template
@@ -195,7 +196,7 @@ relation de la forme:
 \]
 Dans cette équation, les $ \alpha_i$ sont les coefficients de la régression. De manière générale, pour un événement de probabilité
 $p$, l'odd associé est $\frac{p}{1-p}$. L'odd ratio est alors le ratio de deux odd celui associé à la probabilité qu'un événement
-1 se produise sachant qu'un ordre événement 2 s'est produit, sur celui que l'événement 2 ne se produise pas. Dans le cas présent,
+1 se produise sachant qu'un autre événement 2 s'est produit, sur celui que l'événement 2 ne se produise pas. Dans le cas présent,
 l'odd ratio associé à une variable indépendante est l'exponentielle
 du coefficient de cette même variable dans la régression logistique. On distingue en général trois cas de figure:
 \begin{enumerate}
@@ -217,16 +218,16 @@ Pour notre modèle de régression linéaire, on a :
 \begin{enumerate} 
     \item Un taux de vrai positif de 0.891 pour les spams et un taux de vrai positif de 0.954 pour les mails non-spam (la moyenne
 étant de 0.929). Le taux de vrai positif représente les mails qui ont été déclarés comme appartenant à une certaine catégorie et
-qui appartienne réellement à cette catégorie.
+qui appartienne réellement à cette catégorie. 
     \item Un taux de faux positifs désigne la proportion de mails d'une catégorie qui a été désignée à tort comme appartenant à
 cette catégorie. Dans le cas présent, on a un taux de faux positif de 0.046 pour les spam et de 0.0109 pour les mails normaux.
     \item La précision mesure à quel point le résultat d'estimateur devrait être proche de
-la valeur à estimer. (C'est-à-dire quelles sont les chances pour un mail identifié comme appartenent à une catégorie de
+la valeur à estimer. (C'est-à-dire quelles sont les chances pour un mail identifié comme appartenant à une catégorie de
 réellement appartenir à une catégorie). Ici, elle se calcule en divisant le nombre de mails qui appartiennent réellement à une catégorie par le
 nombre de mails dont le test estime qu'ils appartiennent à cette catégorie. On a une précision de 0.926 pour les spams et de 0.931 pour les mails
 normaux  soit une moyenne de 0.929. 
     \item La sensibilité est le nombre de mails correctement identifiés d'une catégorie sur le cardinal de cette catégorie. La
-sensibilité mesure donc à quel point les résultats sont proches de la réalité (Le nombre de mails identifié comme membre
+sensibilité mesure donc à quel point les résultats sont proches de la réalité (Le nombre de mails identifiés comme membre
 d'une catégorie est proche du nombre réel). Une sensibilité (recall) de 0.891 pour les spam de
 0.954 pour les mails classiques, ce qui donne une moyenne de  0.929. On remarque que la sensibilité a les mêmes valeurs que les
 true positives 
@@ -237,8 +238,8 @@ l'algorithme est supposé performant. En revanche, il n'y a pas vraiment d'inter
     \item une aire sous la courbe (ROC area) de 0.971. Cette valeur mesure la performance de notre modèle. Elle désigne l'aire
 sous la courbe lorsque l'on trace le taux de vrais positifs en fonction de taux de faux positifs pour un classificateur
 donné (dans le cas présent on peut prendre une valeur seuil de la fréquence de certains mots). L'idée est que plus cette valeur
-est élevée meilleur est le test. En effet, plus cette valeur est élevée, plus la courbe s'éloige de la droite identité et donc
-plus elle se rapproche du point (0,1) qui caractèrise un test parfait.
+est élevée meilleur est le test. En effet, plus cette valeur est élevée, plus la courbe s'éloigne de la droite identité et donc
+plus elle se rapproche du point (0,1) qui caractérise un test parfait.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
         \item La matrice de confusion est visible sur le tableau \ref{tab:matrix}, les deux premières colonnes caractérisent les
 résultats obtenus lors des tests. La première colonne correspond aux mails détectés comme spam, tandis que la seconde correspond
@@ -271,10 +272,10 @@ click on this lnk(http://clickeme.com) to delte all the files on your hard disk 
 %voir article http://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html
 
 Notons que même si cette stratégie est utilisée plusieurs fois par mot, le texte reste lisible. Et donc, malgré une orthographe
-douteuse, le mail reste compréhensile et ne gêne donc pas l'effet du spam. De ce fait, les personnes qui seraient tombées dans le
-piège avec un mail bien orthograohié, tomberont probablement dans le piège pour la version mal-orthographiée.
+douteuse, le mail reste compréhensible et ne gêne donc pas l'effet du spam. De ce fait, les personnes qui seraient tombées dans le
+piège avec un mail bien orthographié, tomberont probablement dans le piège pour la version mal-orthographiée.
 
-Par ailleurs, s'il manque que quelques lettres, cela pourra être interprété comme des fautes de frappe, et donc ne nuirait pas au
+Par ailleurs, s'il ne manque que quelques lettres, cela pourra être interprété comme des fautes de frappe, et donc ne nuirait pas au
 but du spam.
 
 \end{homeworkSection}
@@ -344,8 +345,13 @@ Pour notre modèle de classification naïve bayésienne, on a :
     \item On a pour matrice de confusion : {{583, 34}, {310,
             637}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+<<<<<<< HEAD
+Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyenne, ce modèle à des résultats moins bon
+que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche une part très
+=======
 Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyennes, ce modèle à des résultats moins bon
 que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche un part très
+>>>>>>> 1996d2c7981acb4801b98289a2b0241a92c48bdf
 importante des mails normaux comme des spams (1/3 environ), ce qui n'est pas une bonne chose du tout et pourrait être
 préjudiciable aux utilisateurs. Notons également que de part l'hypothèse de base(l'indépendance), ce modèle ne pourra jamais
 donner des résultats parfaits quelle que soit sa base de tests.
@@ -421,7 +427,7 @@ meilleures. Nous pouvons donc en déduire que ce modèle est préférable
 \begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} Un exemple de contre-mesure de type Statistical attack qu'un spammeur
     pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
     automatique est l'utilisation de synonymes pour les mots, cela abaisserait la fréquence des mots qui sont considérés comme
-    très présent dans les spams. % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
+    très présent dans les spams, on aurait donc une diffusion de la fréquence des mots ce qui permet d'avoir flouer les fréquences des mots sensibles.  % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
 \end{homeworkSection} 
 \end{homeworkProblem}
 
@@ -437,6 +443,20 @@ meilleur résultat.  C'est donc cette méhodes qui semblent donner les meilleure
 \end{homeworkSection}
 
 \begin{homeworkSection}{Avantage et inconvénient d'un modèle non supervisé} 
+Un avantage de l'utilisation des filtres basés sur l'apprentissage machine supervisé est que l'on est confiant quand à la répartition des données que nous allons avoir. En effet avec l'apprentissage machine supervisé, nous fournissons un jeu de données test connus sur lesquels nous connaissons les résultats et donc les classes sur lesquelles ils sont répartis, nous pouvons donc vérifier l'efficacité de notre filtre sur la détection de spams. Cependant l'inconvénient d'un tel modèle est que nous devons fournir les données d'entrées sur lesquelles nous devons déterminé la classe auquel elles appartiennent. En estimant que pour créer un modèle solide et fiable, il nous faudrait une quantité de données en entrée que nous avons déjà traité en quantité suffisante et donc assez importante, ce procédé demande donc du temps pour la préparation et la classification des données d'entrées.
+%https://www.lri.fr/~antoine/Courses/DEA-I3/Tr-ITA-EV-2003-x9.pdf
+%http://apiacoa.org/publications/teaching/data-mining/supervised.pdf
+%http://fr.mathworks.com/discovery/apprentissage-supervise.html?s_tid=gn_loc_drop
+%http://fr.mathworks.com/help/stats/supervised-learning-machine-learning-workflow-and-algorithms.html
+%https://fr.wikipedia.org/wiki/Apprentissage_supervis%C3%A9
+ 
+Au niveau de l'apprentissage machine non supervisé, il est intéressant de l'utiliser dans le cas où nous voudrions répartir en différentes classes des données volumineuses sur lesquelles nous n'avons a priori pas beaucoup d'informations. Cette méthode, nous permet donc d'avoir un premier tri, avec une intervention humaine relativement faible, qui se déroulera à la fin du processus pour interpréter les résultats de notre filtre. Nous pouvons aussi optimiser un critère visant à regrouper nos données dans des classes le plus homogène possibles mais distinctes entre elles. L'inconvénient d'une telle méthode est que nous ne savons pas à quoi nous attendre au niveau du résultat, étant donné que nous n'avons que peu voir par d'idées sur comment seront répartis les données en entrée. Nous pouvons des répartitions des données intéressantes voire très bonnes comme le contraire, où nous aurons une répartition des données dont nous ne verrons pas forcément le lien ou une répartition des données dans des classes qui ne nous intéresse pas.
+ %https://fr.wikipedia.org/wiki/Apprentissage_non_supervis%C3%A9
+ %http://moodle.insa-toulouse.fr/pluginfile.php/30346/mod_resource/content/0/ApprentissageNonSupervise.pdf
+%http://blogs.msdn.com/b/big_data_france/archive/2014/06/06/apprentissage-non-supervis-233-appliqu-233-224-l-analyse-de-logs-de-proxy.aspx
+
+
+
 \end{homeworkSection}
 
 \begin{homeworkSection}{Amélioration de la performance} 
