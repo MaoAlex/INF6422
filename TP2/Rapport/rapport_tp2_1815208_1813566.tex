@@ -158,6 +158,7 @@
 
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Méthode statistique] % Custom section title
 
+
 \begin{homeworkSection}{Régression logitique} % Section within problem 
     On procède à une régression logistique en allant dans l'onglet "classify" puis en sélectionnant "logistic" dans le menu
 functions".  En laissant sa souris sur le champ "percentage split", l'aide apparaît et nous informe que cette option nous permet
@@ -212,7 +213,7 @@ qu'un mail contenant le mot \textit{order} ou \textit{adresses} a plus de chance
 
 %--------------------------------------------
 
-\begin{homeworkSection}{Etude du Modèle} % Section within problem
+\begin{homeworkSection}{Étude du Modèle} % Section within problem
 
 Pour notre modèle de régression linéaire, on a : 
 \begin{enumerate} 
@@ -273,7 +274,7 @@ click on this lnk(http://clickeme.com) to delte all the files on your hard disk 
 
 Notons que même si cette stratégie est utilisée plusieurs fois par mot, le texte reste lisible. Et donc, malgré une orthographe
 douteuse, le mail reste compréhensible et ne gêne donc pas l'effet du spam. De ce fait, les personnes qui seraient tombées dans le
-piège avec un mail bien orthographié, tomberont probablement dans le piège pour la version mal-orthographiée.
+piège avec un mail bien orthographié, tomberont probablement dans le piège pour la version mal orthographiée.
 
 Par ailleurs, s'il ne manque que quelques lettres, cela pourra être interprété comme des fautes de frappe, et donc ne nuirait pas au
 but du spam.
@@ -369,9 +370,9 @@ donner des résultats parfaits quelle que soit sa base de tests.
 \end{homeworkSection}
 
 \begin{homeworkSection}{Les arbres décisionnels} 
-    Cette méthode de classification se base sur la création d'arbres représentant l'espace de la base de tests. \'A chaque noeud
-correspond une partie cet espace, tous les noeuds fils de ce noeud seront des divisions de cet espace. (Si un noeud a $n$
-noeuds son espace sera divisé en $n$ parties). (Le résultat est alors la catégorie dominante dans la feuille à laquelle le mail
+    Cette méthode de classification se base sur la création d'arbres représentant l'espace de la base de tests. \'A chaque nœud
+correspond une partie cet espace, tous les nœuds fils de ce nœud seront des divisions de cet espace. (Si un nœud a $n$
+nœuds son espace sera divisé en $n$ parties). (Le résultat est alors la catégorie dominante dans la feuille à laquelle le mail
 appartient). Le modèle crée plusieurs arbres (chacun associé à une partition des données) et
 fait la moyenne des résultats des différents arbres pour en déduire un résultat final. Notons que cette méthode est connue pour
 pouvoir facilement s'adapter à de grands espaces de données.
@@ -384,7 +385,7 @@ pouvoir facilement s'adapter à de grands espaces de données.
             0.949), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant des spams et qui
             sont réellement des mails
     \item un taux de faux positif de 0.037 qui est le taux de mail considérés comme des spams
-            mais à tort. Et un taux de faux positif de 0.073 pour les mails considérés comme des non-spams alors qu'ils le sont.
+            mais à tort. Et un taux de faux positif de 0.073 pour les mails considérés comme des non-spam alors qu'ils le sont.
         moyenne de 0.059 
     \item une précision de (0.927 pour les spams/0.963 pour les mails normaux) 0.949 de moyenne.  La
             précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont effectivement, sur le
@@ -422,14 +423,14 @@ meilleures. Nous pouvons donc en déduire que ce modèle est préférable
 \begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} 
     Un exemple de contre-mesure de type Statistical attack qu'un spammeur
 pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
-automatique est l'utilisation de synonymes pour les mots. Le spammeur pourrait avoir une liste de synônymes/différentes phrases
+automatique est l'utilisation de synonymes pour les mots. Le spammeur pourrait avoir une liste de synonymes/différentes phrases
 que le spammeur choisirait aléatoirement au moment d'envoyer le mail. Il s'agirait ainsi d'éviter la répétition des mots "louches"
 ce qui rendrait le mail plus dur à identifier en tant que spam.
 Une autre méthode serait de rajouter un bourrage de texte à la fin du mail afin de noyer les fréquences des mots "coupables" par
 un grands nombre de mots tirés au hasard.
 \newline
 
-Les comtres-mesures possibles seraient d'utiliser des tokens et non plus des mots pour calculer les fréquences. Chaque token
+Les contres-mesures possibles seraient d'utiliser des tokens et non plus des mots pour calculer les fréquences. Chaque token
 représenterait une classe de mots tous synonymes. Puis de vérifier si le mail a une taille raisonnable, et s'il ne s'agit de
 répétitions de mêmes mots. (Ce qui permettrait de déjouer la technique de bourrage). 
     % A compléter Une solution qui permettrait de contrecarrer cette contre-mesure est : ....
@@ -444,7 +445,7 @@ répétitions de mêmes mots. (Ce qui permettrait de déjouer la technique de bo
     Au niveau des résultats, nous pouvons voir que la régression linéaire nous
 fournit un modèle correcte, le modèle de classification naïve bayésienne nous fournit un modèle non pertinent car il considère
 plus de 30\% des mails comme spam alors qu'ils ne le sont pas. Et le modèle de forêts d'arbres décisionnels nous donne le
-meilleur résultat.  C'est donc cette méhodes qui semblent donner les meilleures performances pour le jeu de données spambase
+meilleur résultat.  C'est donc cette méthode qui semblent donner les meilleures performances pour le jeu de données spambase
 \end{homeworkSection}
 
 \begin{homeworkSection}{Avantage et inconvénient d'un modèle non supervisé} 
@@ -470,13 +471,13 @@ reprendrait les principes des listes noires, blanches et grises. Les adresses id
 de spam seraient dans la liste noire et l'utilisateur ne verrait plus les mails associés à ces adresses. \'A l'inverse il
 recevrait toujours ceux de la liste blanche quel que soit leur contenu. Les adresses ne figurant sur aucune des deux listes
 précédentes seraient considérées dans la liste grise et devrait envoyer plusieurs fois leur mail afin que l'utilisateur final les
-recçoive. (On considère que les spam envoie rarement plusieurs fois le même message aux utilisateurs). On pourrait également
-envisager un filtrage sur le contenu, si le message contient un exéutable ou une archive protégée par un mot de passe (dont on ne
+reçoive. (On considère que les spam envoie rarement plusieurs fois le même message aux utilisateurs). On pourrait également
+envisager un filtrage sur le contenu, si le message contient un exécutable ou une archive protégée par un mot de passe (dont on ne
 pourrait analyser le contenu), il serait refusé afin de limiter la propagation de spam destiné à propager des virus. D'autan plus
 qu'un utilisateur normal ne devrait pas envoyer d'exécutable par mail. De même, on pourrait refuser les mails contenant des images
 dans le corps du texte, car il pourrait s'agir d'une tentative d'un spammeur de dissimuler son texte au sein d'images (qui sont
-plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra juste mettre ses images en pièces-jointes. Enfin,
-on pourra bloquer les mails ayant une large liste de destinaires, car ceux-ci sont susceptibles d'être du spam.
+plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra juste mettre ses images en pièces jointes. Enfin,
+on pourra bloquer les mails ayant une large liste de destinataires, car ceux-ci sont susceptibles d'être du spam.
 \end{homeworkSection}
 
 
