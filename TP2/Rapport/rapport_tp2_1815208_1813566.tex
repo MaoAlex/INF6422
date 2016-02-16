@@ -313,17 +313,27 @@ extrait un modèle pour les membres des différentes classes, puis une seconde p
 
 %--------------------------------------------
 
-\begin{homeworkSection}{Classification naïve bayésienne} Pour notre modèle de classification naïve bayésienne, on a :
+\begin{homeworkSection}{Classification naïve bayésienne}
+    Les méthodes de classification de type naïve bayes se base sur l'inférence bayésienne. \'A partir d'une loi de probabilité à
+priori, généralement uniforme, (C'est à dire qu'on suppose qu'un mail a autant de chances d'être du spam que d'être légitime). on
+déduit des probabilités a posteriori via la formule de Bayes ($P(A|B) = \frac{P(A \cap B)}{P(B)}$). Dans le cas présent, sachant
+qu'on a plusieurs variables explicatives (les fréquences), le modèle considère que ces événements sont indépendants, d'où son
+appelation "naïve". Il est sera donc naturel de constater une erreur dans les résultats obtenus. (Les mots d'une phrase étant
+rarement indépendents).
+\newline
+
+
+Pour notre modèle de classification naïve bayésienne, on a :
 \begin{itemize} 
     \item Un taux de vrai positif de 0.945 pour les spams et un taux de vrai positif de 0.673 pour les mails non-spam
-            (la moyenne étant de 0.78), le taux de vrai positif. Il représente les taux de mails qui ont été considéré comme étant
+            (la moyenne étant de 0.78), le taux de vrai positif. Il représente les taux de mails qui ont été considérés comme étant
             des spams et qui sont réellement des mails 
-        \item un taux de faux positif de 0.327 qui est le taux de mail considérés
+    \item un taux de faux positif de 0.327 qui est le taux de mail considérés
             comme des spams mais à tort. Et un taux de faux positif de 0.0055 pour les mails considérés comme des non-spams alors
         qu'ils le sont. moyenne de 0.163 
     \item une précision de (0.653 pour les spams/0.949 pour les mails normaux) 0.832 de
             moyenne.  La précision correspond au rapport entre le nombre de mails détecté comme des spams et qui le sont
-            effectivement, sur le nombre total de mail qui sont des spams pour la première valeur. Pour la seconde c'est la même
+            effectivement, sur le nombre total de mails qui sont des spams pour la première valeur. Pour la seconde c'est la même
             chose mais avec les mails qui ne sont pas des spams.  La moyenne se fait donc sur le nombre de mails qui ont été bien
         catégorisé sur le nombre total de mail.  
     \item une sensibilité (recall) de (0.945/0.673) 0.78. On remarque que la
@@ -335,10 +345,16 @@ extrait un modèle pour les membres des différentes classes, puis une seconde p
     \item On a pour matrice de confusion : {{583, 34}, {310,
             637}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+<<<<<<< HEAD
 Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyenne, ce modèle à des résultats moins bon
 que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche une part très
+=======
+Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyennes, ce modèle à des résultats moins bon
+que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche un part très
+>>>>>>> 1996d2c7981acb4801b98289a2b0241a92c48bdf
 importante des mails normaux comme des spams (1/3 environ), ce qui n'est pas une bonne chose du tout et pourrait être
-préjudiciable aux utilisateurs 
+préjudiciable aux utilisateurs. Notons également que de part l'hypothèse de base(l'indépendance), ce modèle ne pourra jamais
+donner des résultats parfaits quelle que soit sa base de tests.
 \end{itemize} 
 
 \begin{table}[H]
@@ -357,7 +373,16 @@ préjudiciable aux utilisateurs
 \end{table}
 \end{homeworkSection}
 
-\begin{homeworkSection}{Les arbres décisionnels} Pour notre modèle de random forest, on a : 
+\begin{homeworkSection}{Les arbres décisionnels} 
+    Cette méthode de classification se base sur la création d'arbres représentant l'espace de la base de tests. \'A chaque noeud
+correspond une partie cet espace, tous les noeuds fils de ce noeud seront des divisions de cet espace. (Si un noeud a $n$
+noeuds son espace sera divisé en $n$ parties). (Le résultat est alors la catégorie dominante dans la feuille à laquelle le mail
+appartient). Le modèle crée plusieurs arbres (chacun associé à une partition des données) et
+fait la moyenne des résultats des différents arbres pour en déduire un résultat final. Notons que cette méthode est connue pour
+pouvoir facilement s'adapter à de grands espaces de données.
+
+    \newline
+    Pour notre modèle de random forest, on a : 
 \begin{itemize} 
     \item Un taux de vrai
             positif de 0.927 pour les spams et un taux de vrai positif de 0.963 pour les mails non-spam (la moyenne étant de
