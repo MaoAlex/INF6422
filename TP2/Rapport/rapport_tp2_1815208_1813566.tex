@@ -440,6 +440,18 @@ meilleur résultat.  C'est donc cette méhodes qui semblent donner les meilleure
 \end{homeworkSection}
 
 \begin{homeworkSection}{Amélioration de la performance} 
+    En plus de la fréquence, nous pourrions considérer, une système de réputation sur les adresses sources des mails, ce qui
+reprendrait les principes des listes noires, blanches et grises. Les adresses identifiées par l'utilisateur comme étant auteures
+de spam seraient dans la liste noire et l'utilisateur ne verrait plus les mails associés à ces adresses. \'A l'inverse il
+recevrait toujours ceux de la liste blanche quel que soit leur contenu. Les adresses ne figurant sur aucune des deux listes
+précédentes seraient considérées dans la liste grise et devrait envoyer plusieurs fois leur mail afin que l'utilisateur final les
+recçoive. (On considère que les spam envoie rarement plusieurs fois le même message aux utilisateurs). On pourrait également
+envisager un filtrage sur le contenu, si le message contient un exéutable ou une archive protégée par un mot de passe (dont on ne
+pourrait analyser le contenu), il serait refusé afin de limiter la propagation de spam destiné à propager des virus. D'autan plus
+qu'un utilisateur normal ne devrait pas envoyer d'exécutable par mail. De même, on pourrait refuser les mails contenant des images
+dans le corps du texte, car il pourrait s'agir d'une tentative d'un spammeur de dissimuler son texte au sein d'images (qui sont
+plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra juste mettre ses images en pièces-jointes. Enfin,
+on pourra bloquer les mails ayant une large liste de destinaires, car ceux-ci sont susceptibles d'être du spam.
 \end{homeworkSection}
 
 
