@@ -221,7 +221,7 @@ Pour notre modèle de régression linéaire, on a :
 étant de 0.929). Le taux de vrai positif représente les mails qui ont été déclarés comme appartenant à une certaine catégorie et
 qui appartienne réellement à cette catégorie. 
     \item Un taux de faux positifs désigne la proportion de mails d'une catégorie qui a été désignée à tort comme appartenant à
-cette catégorie. Dans le cas présent, on a un taux de faux positif de 0.046 pour les spam et de 0.0109 pour les mails normaux.
+cette catégorie. Dans le cas présent, on a un taux de faux positif de 0.046 pour les spam et de 0.109 pour les mails normaux.
     \item La précision mesure à quel point le résultat d'estimateur devrait être proche de
 la valeur à estimer. (C'est-à-dire quelles sont les chances pour un mail identifié comme appartenant à une catégorie de
 réellement appartenir à une catégorie). Ici, elle se calcule en divisant le nombre de mails qui appartiennent réellement à une catégorie par le
@@ -232,7 +232,7 @@ sensibilité mesure donc à quel point les résultats sont proches de la réalit
 d'une catégorie est proche du nombre réel). Une sensibilité (recall) de 0.891 pour les spam de
 0.954 pour les mails classiques, ce qui donne une moyenne de  0.929. On remarque que la sensibilité a les mêmes valeurs que les
 true positives 
-    \item La F-measure se calcule par la formule $2 \cdot \frac{recall * precision}{recall +
+    \item La F-Measure se calcule par la formule $2 \cdot \frac{recall * precision}{recall +
         precision}$. Ici elle vaut pour le spam (respectivement pour les mails normaux) 0.908 (respectivement 0.942). Cette valeur
 sert principalement de métrique pour comparer les performances de différents algorithmes, plus sa valeur est élevée plus
 l'algorithme est supposé performant. En revanche, il n'y a pas vraiment d'interprétation pratique de cette valeur.
@@ -246,6 +246,8 @@ plus elle se rapproche du point (0,1) qui caractérise un test parfait.
 résultats obtenus lors des tests. La première colonne correspond aux mails détectés comme spam, tandis que la seconde correspond
 aux mails normaux. La première ligne représente les mails étant réellement du spam, tandis que la seconde caractérise les mails
 légitimes.
+
+Nous pouvons voir que notre modèle possède une précision assez bonne, de plus de 90\%(voir paragraphe 3 de l'article A SURVEY OF LEARNING-BASED TECHNIQUES OF EMAIL SPAM FILTERING). Au niveau du taux de vrai positif et de faux positif, nous pouvons que dans le premier cas, notre valeur moyenne est a peu près à 93\% et pour la seconde, la valeur moyenne étant inférieur à 9\%. Nous arrivons donc avec cette méthode à filtrer une grosse partie des spams en se trompant que légèrement pour sur la nature des mails. Au niveau des valeurs de F-Measure, ROC area, et de sensibilité, nous avons des valeurs que nous pouvons considérer comme assez "haute", mais que nous utiliserons comme valeurs de comparaisons avec les autres méthodes utilisées dans ce TP.
 \begin{table}
     \begin{center}
         \input{Tableau/matrix.tex} 
@@ -262,13 +264,13 @@ légitimes.
     Un exemple de contre-mesure de type Tokenization attack qu'un spammeur pourrait
     facilement utiliser afin de contourner un filtre basé uniquement sur la fréquence d'apparition de certains mots est de
     permuter la place de certaines lettres dans certains mots, ou de créer de manière volontaire des fautes d'orthographes qui
-    n'altéreront pas la signification du texte.  Pour le message suivant nous pourrions avoir le résultat :
+    n'altéreront pas la signification du texte. Nous pouvons aussi utiliser des lettres similaires ayant un code ASCII différent.  Pour le message suivant nous pourrions avoir le résultat :
 
 {\it
 DEAR RECEIVER,
 
-You have just recieved a Talban virus. Since we are not so technlogoicaly advanced in Afganistan, this is a MANUAL vrus. Please
-click on this lnk(http://clickeme.com) to delte all the files on your hard disk and send this mal to everyone you know. 
+You have just recieved a Talban virus. Since we re not so technlogoicaly advanced in Afganistan, this is a MANUAL vrus. Please
+click on this lnk(http://clickeme.com) to delte all the files on your hard disk and send this mal to evryone u know. 
 }
 %voir article http://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html
 
@@ -315,20 +317,19 @@ extrait un modèle pour les membres des différentes classes, puis une seconde p
 %--------------------------------------------
 
 \begin{homeworkSection}{Classification naïve bayésienne}
-    Les méthodes de classification de type naïve bayes se base sur l'inférence bayésienne. \'A partir d'une loi de probabilité à
+    Les méthodes de classification de type naïve bayésienne se base sur l'inférence bayésienne. \'A partir d'une loi de probabilité à
 priori, généralement uniforme, (C'est à dire qu'on suppose qu'un mail a autant de chances d'être du spam que d'être légitime). on
 déduit des probabilités a posteriori via la formule de Bayes ($P(A|B) = \frac{P(A \cap B)}{P(B)}$). Dans le cas présent, sachant
 qu'on a plusieurs variables explicatives (les fréquences), le modèle considère que ces événements sont indépendants, d'où son
-appelation "naïve". Il est sera donc naturel de constater une erreur dans les résultats obtenus. (Les mots d'une phrase étant
-rarement indépendents).
+appellation "naïve". Il est sera donc naturel de constater une erreur dans les résultats obtenus. (Les mots d'une phrase étant
+rarement indépendants).
 \newline
 
 
 Pour notre modèle de classification naïve bayésienne, on a :
 \begin{itemize} 
     \item Un taux de vrai positif de 0.945 pour les spams et un taux de vrai positif de 0.673 pour les mails non-spam
-            (la moyenne étant de 0.78), le taux de vrai positif. Il représente les taux de mails qui ont été considérés comme étant
-            des spams et qui sont réellement des mails 
+            (la moyenne étant de 0.78), le taux de vrai positif. Il représente les taux de mails qui ont été considérés comme étant des spams et qui sont réellement des mails 
     \item un taux de faux positif de 0.327 qui est le taux de mail considérés
             comme des spams mais à tort. Et un taux de faux positif de 0.0055 pour les mails considérés comme des non-spams alors
         qu'ils le sont. moyenne de 0.163 
@@ -339,17 +340,18 @@ Pour notre modèle de classification naïve bayésienne, on a :
         catégorisé sur le nombre total de mail.  
     \item une sensibilité (recall) de (0.945/0.673) 0.78. On remarque que la
         sensibilité a les mêmes valeurs que les true positives 
-    \item un F-measure de (0.772/0.787) 0.781. Ces valeurs ont l'air
+    \item un F-Measure de (0.772/0.787) 0.781. Ces valeurs ont l'air
             d'être la moyenne entre la précision et la sensibilité. %définition à revoir 
         \item une aire sous la courbe (ROC area)
         de 0.935. Cette valeur mesure la performance de notre modèle 
-    \item On a pour matrice de confusion : {{583, 34}, {310,
-            637}}, avec la première ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
+    \item Une matrice de confusion que nous pouvons voir dans la Table 5.
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+Nous pouvons voir que les valeurs que nous avons pour le taux de vrai positif, notre precision, ne sont pas bonnes au niveau de la valeur. On ne dépasse pas les 85\%. Alors que le taux de faux positif quant à lui à une valeur beaucoup trop élevée pour être acceptable.(On a un niveau d'erreur trop élevé).
 Comparativement au précédent modèle, ce que nous pouvons voir, c'est qu'au niveau des moyennes, ce modèle à des résultats moins bon
 que le modèle avec la régression linéaire malgré le fait qu'il détecte mieux les spams, il détecte en revanche un part très
 importante des mails normaux comme des spams (1/3 environ), ce qui n'est pas une bonne chose du tout et pourrait être
-préjudiciable aux utilisateurs. Notons également que de part l'hypothèse de base(l'indépendance), ce modèle ne pourra jamais
+préjudiciable aux utilisateurs. Si nous comparons les valeurs de sensibilité, de F-Measure, et de ROC area, le modèle utilisant la régression linéaire possède des valeurs plus haute que celle de la méthode naïve bayésienne. Nous pouvons donc en déduire que le premier modèle est plus performant que ce second modèle.
+Notons également que de part l'hypothèse de base(l'indépendance), ce modèle ne pourra jamais
 donner des résultats parfaits quelle que soit sa base de tests.
 \end{itemize} 
 
@@ -392,16 +394,16 @@ pouvoir facilement s'adapter à de grands espaces de données.
             mails qui ne sont pas des spams.  La moyenne se fait donc sur le nombre de mails qui ont été bien catégorisé sur le
         nombre total de mail.  
     \item une sensibilité (recall) de (0.927/0.963) 0.949. On remarque que la sensibilité a les mêmes
-        valeurs que les true positivesm
-    \item un F-measure de (0.935/0.958) 0.949. Ces valeurs ont l'air d'être la moyenne entre la
+        valeurs que les true positives
+    \item un F-Measure de (0.935/0.958) 0.949. Ces valeurs ont l'air d'être la moyenne entre la
             précision et la sensibilité. %définition à revoir
     \item une aire sous la courbe (ROC area) de 0.987. Cette valeur
         mesure la performance de notre modèle 
-    \item On a pour matrice de confusion : {{572, 45}, {35, 912}}, avec la première
-            ligne a = 1, première colonne a, deuxième ligne b=2 et colonne b.
+    \item Nous pouvons voir la matrice de confusion de ce modèle au niveau de la table 7
 %A voir https://fr.wikipedia.org/wiki/Receiver_Operating_Characteristic
+Nous pouvons voir tout d'abord au niveau des valeurs de ce modèle que nous possédons de bonnes valeurs, un taux de vrai positif à plus de 94\% de moyenne, un taux de faux positif moyen à environ 6\% et une précision de plus de 94%\.
 Comparativement aux deux précédents modèles, ce que nous pouvons voir, est que les valeurs pour les différents élément sont toutes
-meilleures. Nous pouvons donc en déduire que ce modèle est préférable 
+meilleures, notamment au niveau de la sensibilité, de la valeur de F-Measure et de la valeur de ROC Area. Comme nous avions dit que ces valeurs étaient utilisées pour la comparaison de différents modèles, nous pouvons donc en déduire que ce modèle est préférable au vue de ces valeurs.
 \end{itemize} 
 \begin{table}[H]
     \begin{center}
@@ -419,11 +421,11 @@ meilleures. Nous pouvons donc en déduire que ce modèle est préférable
 \end{table}
 \end{homeworkSection}
 
-\begin{homeworkSection}{Contre-mesures \textit{Satistical Attack}} 
+\begin{homeworkSection}{Contre-mesures \textit{Statistical Attack}} 
     Un exemple de contre-mesure de type Statistical attack qu'un spammeur
 pourrait utiliser afin d'échapper à un filtre basé sur la fréquence des mots en utilisant une méthode d'apprentissage
-automatique est l'utilisation de synonymes pour les mots. Le spammeur pourrait avoir une liste de synonymes/différentes phrases
-que le spammeur choisirait aléatoirement au moment d'envoyer le mail. Il s'agirait ainsi d'éviter la répétition des mots "louches"
+automatique est l'utilisation de synonymes pour les mots. Le spammeur pourrait avoir une liste de synonymes ou une liste avec différentes phrases ayant un sens global similaire
+qu'il choisirait aléatoirement au moment d'envoyer le mail. Il s'agirait ainsi d'éviter la répétition des mots "louches", repéré comme souvent utilisé dans les spam,
 ce qui rendrait le mail plus dur à identifier en tant que spam.
 Une autre méthode serait de rajouter un bourrage de texte à la fin du mail afin de noyer les fréquences des mots "coupables" par
 un grands nombre de mots tirés au hasard.
@@ -441,26 +443,41 @@ répétitions de mêmes mots. (Ce qui permettrait de déjouer la technique de bo
 \begin{homeworkProblem}[\arabic{homeworkProblemCounter} Apprentissage automatique] % Roman numerals
 
 \begin{homeworkSection}{Comparaison des résultats} 
-    Au niveau des résultats, nous pouvons voir que la régression linéaire nous
-fournit un modèle correcte, le modèle de classification naïve bayésienne nous fournit un modèle non pertinent car il considère
-plus de 30\% des mails comme spam alors qu'ils ne le sont pas. Et le modèle de forêts d'arbres décisionnels nous donne le
-meilleur résultat.  C'est donc cette méthode qui semblent donner les meilleures performances pour le jeu de données spambase
+    Au niveau des résultats, nous avons les moins bonne valeurs pour la méthode de classification naïve bayésienne, les valeurs de la méthode de régression linéaire sont meilleurs mais le dernier modèle utilisé nous fournit les meilleurs résultat au niveau valeurs moyennes(mais au niveau du taux de vrai positif  pour la détection de mails classiques, le taux de faux positif pour le mail, la précision pour les spam et la sensibilité pour les mails classiques). Nous pouvons voir que la régression linéaire nous
+fournit un modèle correcte que nous pouvons penser tout même assez bon, le modèle de classification naïve bayésienne nous fournit un modèle non pertinent car il considère
+plus de 30\% des mails comme spam alors qu'ils ne le sont pas, il n'est donc pas exploitable en réalité car trop préjudiciable pour des usagers. Et le modèle de forêts d'arbres décisionnels nous donne le
+meilleur résultat, on peut donc penser que c'est un bon modèle, ou tout du moins, un bon modèle pour notre jeu de données.  C'est donc cette méthode qui semblent donner les meilleures performances pour le jeu de données spambase
+
+Références :
+\begin{itemize}
+\item Apprentissage supervisé, Fabrice Rossi
+
+(\url{http://apiacoa.org/publications/teaching/data-mining/supervised.pdf})
+\item Supervised Learning Workflow and Algorithms, site MathWorks 
+(\url{http://fr.mathworks.com/help/stats/supervised-learning-machine-learning-workflow-and-algorithms.html})
+\item Apprentissage supervisé, site Wikipédia
+
+(\url{https://fr.wikipedia.org/wiki/Apprentissage_supervis%C3%A9})
+\end{itemize}
 \end{homeworkSection}
 
 \begin{homeworkSection}{Avantage et inconvénient d'un modèle non supervisé} 
-Un avantage de l'utilisation des filtres basés sur l'apprentissage machine supervisé est que l'on est confiant quand à la répartition des données que nous allons avoir. En effet avec l'apprentissage machine supervisé, nous fournissons un jeu de données test connus sur lesquels nous connaissons les résultats et donc les classes sur lesquelles ils sont répartis, nous pouvons donc vérifier l'efficacité de notre filtre sur la détection de spams. Cependant l'inconvénient d'un tel modèle est que nous devons fournir les données d'entrées sur lesquelles nous devons déterminé la classe auquel elles appartiennent. En estimant que pour créer un modèle solide et fiable, il nous faudrait une quantité de données en entrée que nous avons déjà traité en quantité suffisante et donc assez importante, ce procédé demande donc du temps pour la préparation et la classification des données d'entrées.
-%https://www.lri.fr/~antoine/Courses/DEA-I3/Tr-ITA-EV-2003-x9.pdf
-%http://apiacoa.org/publications/teaching/data-mining/supervised.pdf
-%http://fr.mathworks.com/discovery/apprentissage-supervise.html?s_tid=gn_loc_drop
-%http://fr.mathworks.com/help/stats/supervised-learning-machine-learning-workflow-and-algorithms.html
-%https://fr.wikipedia.org/wiki/Apprentissage_supervis%C3%A9
+Un avantage de l'utilisation des filtres basés sur l'apprentissage machine supervisé est que l'on est confiant quand à la répartition des données que nous allons avoir. En effet avec l'apprentissage machine supervisé, nous fournissons un jeu de données test connus sur lesquels nous connaissons les résultats et donc les classes sur lesquelles ils sont répartis, nous pouvons donc vérifier l'efficacité de notre filtre sur la détection de spams. Cependant l'inconvénient d'un tel modèle est que nous devons fournir les données d'entrées sur lesquelles nous devons déterminé la classe auquel elles appartiennent. En estimant que pour créer un modèle solide et fiable, il nous faudrait une quantité de données en entrée que nous avons déjà traité en quantité suffisante, diversifiée et donc assez importante, ce procédé demande donc du temps pour la préparation et la classification des données d'entrées.
  
 Au niveau de l'apprentissage machine non supervisé, il est intéressant de l'utiliser dans le cas où nous voudrions répartir en différentes classes des données volumineuses sur lesquelles nous n'avons a priori pas beaucoup d'informations. Cette méthode, nous permet donc d'avoir un premier tri, avec une intervention humaine relativement faible, qui se déroulera à la fin du processus pour interpréter les résultats de notre filtre. Nous pouvons aussi optimiser un critère visant à regrouper nos données dans des classes le plus homogène possibles mais distinctes entre elles. L'inconvénient d'une telle méthode est que nous ne savons pas à quoi nous attendre au niveau du résultat, étant donné que nous n'avons que peu voir par d'idées sur comment seront répartis les données en entrée. Nous pouvons des répartitions des données intéressantes voire très bonnes comme le contraire, où nous aurons une répartition des données dont nous ne verrons pas forcément le lien ou une répartition des données dans des classes qui ne nous intéresse pas.
- %https://fr.wikipedia.org/wiki/Apprentissage_non_supervis%C3%A9
- %http://moodle.insa-toulouse.fr/pluginfile.php/30346/mod_resource/content/0/ApprentissageNonSupervise.pdf
-%http://blogs.msdn.com/b/big_data_france/archive/2014/06/06/apprentissage-non-supervis-233-appliqu-233-224-l-analyse-de-logs-de-proxy.aspx
-
-
+\newLine
+Références :
+\begin{itemize}
+	\item Apprentissage non supervisé, Site Wikipédia
+	
+(\url{https://fr.wikipedia.org/wiki/Apprentissage_non_supervis%C3%A9})
+	\item Apprentissage non supervisé, Hélène Milhem
+	
+(\url{http://moodle.insa-toulouse.fr/pluginfile.php/30346/mod_resource/content/0/ApprentissageNonSupervise.pdf})
+	\item Apprentissage non-supervisé appliqué à l’analyse de logs de proxy, Philippe Beraud
+	
+(\url{http://blogs.msdn.com/b/big_data_france/archive/2014/06/06/apprentissage-non-supervis-233-appliqu-233-224-l-analyse-de-logs-de-proxy.aspx})
+\end{itemize}
 
 \end{homeworkSection}
 
@@ -479,10 +496,18 @@ plus dures à analyser que du texte pur). De plus, un utilisateur normal pourra 
 on pourra bloquer les mails ayant une large liste de destinaires, car ceux-ci sont susceptibles d'être du spam.
 Nous pourrions aussi filtrer les mails selon leur adresse IP émettrice pour avoir une idée de leur provenance (pays émetteur notamment) et le propriétaire de cette adresse. Nous pouvons aussi considérer la configuration du serveur émetteur, et vérifier si le protocole SMTP s'est bien déroulé, s'il y a bien eu le respect de l'acquittement. On peut ainsi vérifier ainsi la qualité du serveur émetteur.
 Et nous pouvons aussi analyser l'en-tête du mail, en étudiant les récepteurs, le sujet du message, et la date d'envoi.
+\newLine
+Références :
+\begin{itemize}
+\item Sélection de Caractéristiques pour le Filtrage de Spams, Kamilia MENGHOUR, Labiba SOUICI-MESLATI
 
-\url{https://www.researchgate.net/publication/220761239_Selection_de_Caracteristiques_pour_le_Filtrage_de_Spams}
-\url{http://www.altospam.com/actualite/2007/07/comment-un-spam-est-detecte/}
-\url{http://www.altospam.com/fr/panorama-des-technologies-antispam.php}	
+(\url{https://www.researchgate.net/publication/220761239_Selection_de_Caracteristiques_pour_le_Filtrage_de_Spams}))\item Comment un spam est détecté ?, Stephane Manhes
+
+(\url{http://www.altospam.com/actualite/2007/07/comment-un-spam-est-detecte/})
+\item Panorama des technologies antispam, OKTEY
+
+(\url{http://www.altospam.com/fr/panorama-des-technologies-antispam.php})
+\end{itemize}
 \end{homeworkSection}
 
 
